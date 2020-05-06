@@ -2,7 +2,7 @@
 Project team:[jullie namen]
 
 Platform:
-[jullie platfom]
+VR
 
 ### Korte omschrijving van de game
 ...
@@ -11,7 +11,7 @@ Platform:
 #### Producten Werkproces 1
 | Product  | Link |
 | ------ |  ------ |
-| Link naar online product backlog (Trello) | [Backlog]
+| Link naar online product backlog (Trello) | [Backlog](https://trello.com/b/CvDCCYtS/mythe)
 | Logboek (pdf)                             | [Logboek]
 | Game concept doc (pdf)                    | [GameDesignDoc]
 |<img width=500/>|<img width=300/>|
@@ -19,7 +19,7 @@ Platform:
 #### Producten Werkproces 2
 | Product  | Link |
 | ------ |  ------ |
-| Online Product backlog & Sprint backlog + DoD (Trello)    | [Backlog]
+| Online Product backlog & Sprint backlog + DoD (Trello)    | [Backlog](https://trello.com/b/CvDCCYtS/mythe)
 | Sprint retrospective verslagen (pdf)                      | [RetrospectiveVerslagen]
 | Logboek (pdf)                                             | [Logboek]
 | Opnames sprint retrospectives (Teams opnames)             | [Folder op teams]
