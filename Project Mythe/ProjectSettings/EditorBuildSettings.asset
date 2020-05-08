@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HDRP Shit/Scenes/SampleScene.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 253d45c2ba35d174e9858aa67c33e42a,
+      type: 2}
