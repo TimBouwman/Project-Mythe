@@ -50,6 +50,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/Move",
+      "type": "vector2"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -81,38 +85,6 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
-    },
-    {
-      "name": "/actions/Gameplay/in/Move",
-      "type": "vector2"
-    },
-    {
-      "name": "/actions/Gameplay/in/Grip",
-      "type": "vector1"
-    },
-    {
-      "name": "/actions/Gameplay/in/Trigger",
-      "type": "vector1"
-    },
-    {
-      "name": "/actions/Gameplay/in/Menu",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/Gameplay/in/Thumb",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/Gameplay/in/TurnLeft",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/Gameplay/in/TurnRight",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/Gameplay/out/Haptic",
-      "type": "vibration"
     }
   ],
   "action_sets": [
@@ -131,10 +103,6 @@
     {
       "name": "/actions/mixedreality",
       "usage": "single"
-    },
-    {
-      "name": "/actions/Gameplay",
-      "usage": "leftright"
     }
   ],
   "default_bindings": [

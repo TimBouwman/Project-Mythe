@@ -25,8 +25,6 @@ namespace Valve.VR
         
         private static SteamVR_Input_ActionSet_mixedreality p_mixedreality;
         
-        private static SteamVR_Input_ActionSet_Gameplay p_Gameplay;
-        
         public static SteamVR_Input_ActionSet_default _default
         {
             get
@@ -59,27 +57,17 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Input_ActionSet_Gameplay Gameplay
-        {
-            get
-            {
-                return SteamVR_Actions.p_Gameplay.GetCopy<SteamVR_Input_ActionSet_Gameplay>();
-            }
-        }
-        
         private static void StartPreInitActionSets()
         {
             SteamVR_Actions.p__default = ((SteamVR_Input_ActionSet_default)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_default>("/actions/default")));
             SteamVR_Actions.p_platformer = ((SteamVR_Input_ActionSet_platformer)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_platformer>("/actions/platformer")));
             SteamVR_Actions.p_buggy = ((SteamVR_Input_ActionSet_buggy)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_buggy>("/actions/buggy")));
             SteamVR_Actions.p_mixedreality = ((SteamVR_Input_ActionSet_mixedreality)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_mixedreality>("/actions/mixedreality")));
-            SteamVR_Actions.p_Gameplay = ((SteamVR_Input_ActionSet_Gameplay)(SteamVR_ActionSet.Create<SteamVR_Input_ActionSet_Gameplay>("/actions/Gameplay")));
             Valve.VR.SteamVR_Input.actionSets = new Valve.VR.SteamVR_ActionSet[] {
                     SteamVR_Actions._default,
                     SteamVR_Actions.platformer,
                     SteamVR_Actions.buggy,
-                    SteamVR_Actions.mixedreality,
-                    SteamVR_Actions.Gameplay};
+                    SteamVR_Actions.mixedreality};
         }
     }
 }
