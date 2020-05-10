@@ -10,12 +10,6 @@ public class ItemSound : MonoBehaviour
     private enum ObjectSound {HitSomethingSound, UseObjectSound}
     private ObjectSound myObjectSound;
 
-    void Start()
-    {
-        
-    }
-
-
     // checkt voor collision met de grond
     // set de enum zodat de juiste sound settings word gebruikt
     private void OnCollisionEnter(Collision collision)
