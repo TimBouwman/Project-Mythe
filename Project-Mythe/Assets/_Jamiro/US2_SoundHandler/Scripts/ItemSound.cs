@@ -41,13 +41,15 @@ public class ItemSound : MonoBehaviour
     {
         if (myObjectSound == ObjectSound.HitSomethingSound)
         {
-            audioSource.volume = (mag / 100) / 1.5f;
+            audioSource.volume = (mag / 100) / 1.25f;
             audioSource.clip = objectHitSomethingSound;
+            audioSource.spatialBlend = 1;
         }
         else if (myObjectSound == ObjectSound.UseObjectSound)
         {
             audioSource.volume = 1;
             audioSource.clip = objectSoundWhenUsed;
+            audioSource.spatialBlend = 0;
         }
     }
 }

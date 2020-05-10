@@ -421,6 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectHitSomethingSound: {fileID: 8300000, guid: 48e76b4347997924ba69ba64e42f57de,
     type: 3}
+  objectSoundWhenUsed: {fileID: 0}
 --- !u!54 &1469646888
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -691,6 +692,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9168027535446612780, guid: 9cc29ce1d1bb3b54b98ae1db15591934,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9168027535446612781, guid: 9cc29ce1d1bb3b54b98ae1db15591934,
         type: 3}
       propertyPath: m_Name
