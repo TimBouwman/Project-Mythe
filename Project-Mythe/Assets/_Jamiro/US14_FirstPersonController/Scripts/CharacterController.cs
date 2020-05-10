@@ -9,13 +9,17 @@ public class CharacterController : MonoBehaviour {
     private float translation;
     private float straffe;
     private float flying;
-    
+    private Rigidbody rb;
+    private Collider col;
     private bool noclipmodes = false;
+    
 
     // Use this for initialization
     void Start () {
-        Cursor.lockState = CursorLockMode.Locked;		
-	}
+        Cursor.lockState = CursorLockMode.Locked;
+        col = gameObject.GetComponent<Collider>();
+        rb = gameObject.GetComponent<Rigidbody>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,9 +33,9 @@ public class CharacterController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.N))
         {
             noclipmodes = !noclipmodes;
-            gameObject.GetComponent<Rigidbody>().isKinematic = !gameObject.GetComponent<Rigidbody>().isKinematic;
-            gameObject.GetComponent<Rigidbody>().detectCollisions = !gameObject.GetComponent<Rigidbody>().detectCollisions;
-            gameObject.GetComponent<Collider>().enabled = !gameObject.GetComponent<Collider>().enabled;
+            rb.isKinematic = !rb.isKinematic;
+            rb.detectCollisions = !rb.detectCollisions;
+            col.enabled = !col.enabled;
         }
 
         if (noclipmodes)
