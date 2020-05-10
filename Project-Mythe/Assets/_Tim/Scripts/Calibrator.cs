@@ -54,15 +54,20 @@ public class Calibrator : MonoBehaviour
     private void CalibrarePlayerheight()
     {
         if(head.position.y > targetheight)
+        {
             while (head.position.y > targetheight)
             {
                 UpdatePlayerheight(-0.05f);
             }
+        }  
         else
+        {
             while (head.position.y < targetheight)
             {
                 UpdatePlayerheight(0.05f);
             }
+        }
+            
         playerheight(player.localScale);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

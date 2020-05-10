@@ -778,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd606e5ce4cc2d34cabda596a302c784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetHight: 1
+  targetheight: 1
   calibrate:
     actionPath: /actions/default/in/Calibrate
     needsReinit: 0
