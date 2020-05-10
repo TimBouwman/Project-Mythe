@@ -41,6 +41,7 @@ public class VRMovement : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private Transform head;
+    public Transform Head { get { return this.head; } }
     private CharacterController cc;
     #endregion
 
