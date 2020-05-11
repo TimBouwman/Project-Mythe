@@ -6,15 +6,15 @@ public class ItemSound : MonoBehaviour
 {
     #region Variables
     //variable voor audio objecten die gepooled word
-    [SerializeField] [Tooltip("geluidje wat het object moet maken als hij iets raakt")] private AudioClip objectHitSomethingSound;
-    [SerializeField] [Tooltip("de magnitude van de velocity / 100  en dan nog eens delen door dit")] private float soundDevideBy;
+    [SerializeField] [Tooltip("geluidje wat het object moet maken als hij iets raakt")] private AudioClip objectHitSomethingSound = null;
+    [SerializeField] [Tooltip("de magnitude van de velocity / 100  en dan nog eens delen door dit")] private float soundDevideBy = 1.25f;
     private AudioSource objectPoolingAudioSource;
     private float mag;
 
     // variable voor audio wat van dit object komt;
-    [SerializeField] [Tooltip("geluidje wat het object moet maken wanneer je het object gebruikt")] private AudioClip objectSoundWhenUsed;
+    [SerializeField] [Tooltip("geluidje wat het object moet maken wanneer je het object gebruikt")] private AudioClip objectSoundWhenUsed = null;
     [SerializeField] [Tooltip("de audiosource die op dit item moet")] private AudioSource thisObjectAudioSource;
-    [SerializeField] [Tooltip("3d of 2d geluid voor dit item. 1/0")] private float ThisItemIsUsedAudioDimension = 1;
+    [SerializeField] [Tooltip("3d of 2d geluid voor dit item. 1 tot 0")] private float ThisItemIsUsedAudioDimension = 1;
     [SerializeField] [Tooltip("minimale distance van het object om het geluid te horen")] private float ThisItemIsUsedAudioMinDistance = 0;
     [SerializeField] [Tooltip("maximale distance van het object om het geluid te horen")] private float ThisItemIsUsedAudioMaxDistance = 5;
 
