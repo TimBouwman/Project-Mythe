@@ -6,50 +6,50 @@ public class ItemSound : MonoBehaviour
 {
     [SerializeField] [Tooltip("geluidje wat het object moet maken als hij iets raakt")] private AudioClip objectHitSomethingSound;
     [SerializeField] [Tooltip("geluidje wat het object moet maken wanneer je het object gebruikt")]private AudioClip objectSoundWhenUsed;
-    private AudioSource audioSource;
+    private AudioSource objectPoolingAudioSource;
+    private AudioSource thisObjectAudioSource;
     private enum ObjectSound {HitSomethingSound, UseObjectSound}
     private ObjectSound myObjectSound;
+    private float mag;
+    [SerializeField] private float soundDevideBy;
 
     // checkt voor collision met de grond
     // set de enum zodat de juiste sound settings word gebruikt
+
+    private void Start()
+    {
+        thisObjectAudioSource = GetComponent<AudioSource>();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.relativeVelocity.magnitude >= 3)
         {
-            PlayItemSound(collision.relativeVelocity.magnitude, objectHitSomethingSound);
+            PoolItemSound();
+            mag = collision.relativeVelocity.magnitude;
             myObjectSound = ObjectSound.HitSomethingSound;
         }
     }
 
     //vraagt de objectpooler een audiohandler object uit de pool aan 
     //past de settings van het geluid aan waar dat nodig is (volume van het item wat de grond raakt word bepaald door hoe hard hij iets raakt)
-    private void PlayItemSound(float mag, AudioClip audioSound)
+    private void PoolItemSound()
     {
         GameObject sound = ObjectPooler.SharedInstance.GetPooledObject();
-        audioSource = sound.GetComponent<AudioSource>();
-        if (sound != null)
+        objectPoolingAudioSource = sound.GetComponent<AudioSource>();
+        if (sound != null && myObjectSound == ObjectSound.HitSomethingSound)
         {
-            setSoundSettings(mag);
-            sound.transform.position = transform.position;
-            sound.SetActive(true);
+            setHitSomethingSoundSettings(sound);
         }
     }
 
     // de enum word gecheckt en de volume word aangepast wanneer nodig is.
     // en de juiste audioclip word gebruikt
-    private void setSoundSettings(float mag)
+    private void setHitSomethingSoundSettings(GameObject sound)
     {
-        if (myObjectSound == ObjectSound.HitSomethingSound)
-        {
-            audioSource.volume = (mag / 100) / 1.25f;
-            audioSource.clip = objectHitSomethingSound;
-            audioSource.spatialBlend = 1;
-        }
-        else if (myObjectSound == ObjectSound.UseObjectSound)
-        {
-            audioSource.volume = 1;
-            audioSource.clip = objectSoundWhenUsed;
-            audioSource.spatialBlend = 0;
-        }
+            objectPoolingAudioSource.volume = (mag / 100) / soundDevideBy;
+            objectPoolingAudioSource.clip = objectHitSomethingSound;
+            sound.transform.position = transform.position;
+            sound.SetActive(true);
     }
 }

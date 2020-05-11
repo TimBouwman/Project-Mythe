@@ -26,9 +26,10 @@ public class CheckWhenSoundIsDone : MonoBehaviour
         {
             audioLength = audioSource.clip.length;
             gameObject.SetActive(false);
-            
         }
-       
+        
+
+
     }
     
 }

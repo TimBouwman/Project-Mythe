@@ -5,9 +5,9 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler SharedInstance;
-    public List<GameObject> pooledObjects;
-    public GameObject objectToPool;
-    public int amountToPool;
+    [SerializeField] private List<GameObject> pooledObjects;
+    [SerializeField] private GameObject objectToPool;
+    [SerializeField] private int amountToPool;
 
     void Awake()
     {
@@ -20,6 +20,7 @@ public class ObjectPooler : MonoBehaviour
         for (int i = 0; i < amountToPool; i++)
         {
             GameObject obj = (GameObject)Instantiate(objectToPool);
+            obj.transform.parent = transform;
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
