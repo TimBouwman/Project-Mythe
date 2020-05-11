@@ -21,10 +21,9 @@ public class ItemSound : MonoBehaviour
     #endregion
 
     #region Unity methods
-    private void Start()
-    {
-        if (thisObjectAudioSource != null) thisObjectAudioSource = GetComponent<AudioSource>();
-    }
+
+    private void Start() { if (thisObjectAudioSource != null) thisObjectAudioSource = GetComponent<AudioSource>(); }
+
     // checkt voor collision met iets en als het hard genoeg is speeld ie geluid af
     private void OnCollisionEnter(Collision collision)
     {
@@ -55,10 +54,7 @@ public class ItemSound : MonoBehaviour
     {
         GameObject sound = ObjectPooler.SharedInstance.GetPooledObject();
         objectPoolingAudioSource = sound.GetComponent<AudioSource>();
-        if (sound != null)
-        {
-            SetHitSomethingSoundSettings(sound);
-        }
+        SetHitSomethingSoundSettings(sound);
     }
     
 

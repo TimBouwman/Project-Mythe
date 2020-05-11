@@ -128,46 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3028388707540043622, guid: e64fa8075ff46474cb24105a0cfa4d7e,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3028388707540043622, guid: e64fa8075ff46474cb24105a0cfa4d7e,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 48e76b4347997924ba69ba64e42f57de, type: 3}
-    - target: {fileID: 3028388707540043622, guid: e64fa8075ff46474cb24105a0cfa4d7e,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3028388707540043622, guid: e64fa8075ff46474cb24105a0cfa4d7e,
-        type: 3}
-      propertyPath: MinDistance
-      value: 4.9504952
-      objectReference: {fileID: 0}
-    - target: {fileID: 3028388707540043622, guid: e64fa8075ff46474cb24105a0cfa4d7e,
-        type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3028388707540043622, guid: e64fa8075ff46474cb24105a0cfa4d7e,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3028388707540043624, guid: e64fa8075ff46474cb24105a0cfa4d7e,
-        type: 3}
-      propertyPath: ThisItemIsUsedAudioMinDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3028388707540043624, guid: e64fa8075ff46474cb24105a0cfa4d7e,
-        type: 3}
-      propertyPath: ThisItemIsUsedAudioMaxDistance
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3028388707540043625, guid: e64fa8075ff46474cb24105a0cfa4d7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -577,12 +537,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1780061018 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7453158304909615967, guid: 698a046e664530d4ba42c89a9548196c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7453158303401144325}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7453158303401144325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -650,10 +604,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameObject
       objectReference: {fileID: 0}
-    - target: {fileID: 7453158304909615963, guid: 698a046e664530d4ba42c89a9548196c,
-        type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 1780061018}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 698a046e664530d4ba42c89a9548196c, type: 3}
