@@ -4,30 +4,31 @@ using UnityEngine;
 
 public class ItemSound : MonoBehaviour
 {
+    #region Variables
     [SerializeField] [Tooltip("geluidje wat het object moet maken als hij iets raakt")] private AudioClip objectHitSomethingSound;
-    [SerializeField] [Tooltip("geluidje wat het object moet maken wanneer je het object gebruikt")]private AudioClip objectSoundWhenUsed;
+    [SerializeField] [Tooltip("geluidje wat het object moet maken wanneer je het object gebruikt")] private AudioClip objectSoundWhenUsed;
+    [SerializeField] [Tooltip("de audiosource die op dit item moet")] private AudioSource thisObjectAudioSource;
+    [SerializeField] [Tooltip("de magnitude van de velocity / 100  en dan nog eens delen door dit")]private float soundDevideBy;
     private AudioSource objectPoolingAudioSource;
-    private AudioSource thisObjectAudioSource;
-    private enum ObjectSound {HitSomethingSound, UseObjectSound}
-    private ObjectSound myObjectSound;
     private float mag;
-    [SerializeField] private float soundDevideBy;
+    #endregion
 
-    // checkt voor collision met de grond
-    // set de enum zodat de juiste sound settings word gebruikt
-
+    #region Unity methods
     private void Start()
     {
-        thisObjectAudioSource = GetComponent<AudioSource>();
+        if(thisObjectAudioSource != null) thisObjectAudioSource = GetComponent<AudioSource>();
     }
+    #endregion
 
+    #region Sound methods
+    // checkt voor collision met de grond
+    // set de enum zodat de juiste sound settings word gebruikt
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.relativeVelocity.magnitude >= 3)
         {
-            PoolItemSound();
             mag = collision.relativeVelocity.magnitude;
-            myObjectSound = ObjectSound.HitSomethingSound;
+            PoolItemSound();
         }
     }
 
@@ -37,7 +38,7 @@ public class ItemSound : MonoBehaviour
     {
         GameObject sound = ObjectPooler.SharedInstance.GetPooledObject();
         objectPoolingAudioSource = sound.GetComponent<AudioSource>();
-        if (sound != null && myObjectSound == ObjectSound.HitSomethingSound)
+        if (sound != null)
         {
             setHitSomethingSoundSettings(sound);
         }
@@ -52,4 +53,5 @@ public class ItemSound : MonoBehaviour
             sound.transform.position = transform.position;
             sound.SetActive(true);
     }
+    #endregion
 }

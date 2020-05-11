@@ -16,7 +16,6 @@ public class CheckWhenSoundIsDone : MonoBehaviour
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         audioLength = audioSource.clip.length;
-        print(audioSource.clip.length);
     }
     // Update is called once per frame
     void Update()
