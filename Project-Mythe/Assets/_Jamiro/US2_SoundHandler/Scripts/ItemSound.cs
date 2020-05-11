@@ -40,18 +40,25 @@ public class ItemSound : MonoBehaviour
         objectPoolingAudioSource = sound.GetComponent<AudioSource>();
         if (sound != null)
         {
-            setHitSomethingSoundSettings(sound);
+            SetHitSomethingSoundSettings(sound);
         }
     }
 
     // de enum word gecheckt en de volume word aangepast wanneer nodig is.
     // en de juiste audioclip word gebruikt
-    private void setHitSomethingSoundSettings(GameObject sound)
+    private void SetHitSomethingSoundSettings(GameObject sound)
     {
             objectPoolingAudioSource.volume = (mag / 100) / soundDevideBy;
             objectPoolingAudioSource.clip = objectHitSomethingSound;
             sound.transform.position = transform.position;
             sound.SetActive(true);
+    }
+    // wanneer je een item gebruikt deze aanroepen
+    // speelt het geluid af wanneer een item gebruikt word.
+    private void ItemIsUsedSound()
+    {
+        thisObjectAudioSource.clip = objectSoundWhenUsed;
+        thisObjectAudioSource.Play();
     }
     #endregion
 }
