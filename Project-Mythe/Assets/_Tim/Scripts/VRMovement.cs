@@ -13,7 +13,7 @@ using Valve.VR;
 public class VRMovement : MonoBehaviour
 {
     #region Variables
-    [Header("Value's")]
+    [Header("Movement Value's")]
     [Tooltip("The speed with which the player moves")]
     [SerializeField] private float speed = 2f;
     [Tooltip("The amount the player rotates when using the snap rotation")]
@@ -49,6 +49,7 @@ public class VRMovement : MonoBehaviour
     private void Start()
     {
         cc = this.GetComponent<CharacterController>();
+        //cc.enableOverlapRecovery = false;
     }
     private void Update()
     {
@@ -102,10 +103,8 @@ public class VRMovement : MonoBehaviour
         if (cc.isGrounded && velocity.y < 0f)
             velocity.y = -2f;
         else //increasing velocity while faling
-        {
             velocity += Physics.gravity * Time.deltaTime;
-            cc.Move(velocity * Time.deltaTime);
-        }
+        cc.Move(velocity * Time.deltaTime);
     }
     /// <summary>
     /// Turns the player a certain amount to the left or to the right.
