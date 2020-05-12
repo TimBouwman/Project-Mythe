@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3028388707540043624, guid: e64fa8075ff46474cb24105a0cfa4d7e,
+        type: 3}
+      propertyPath: objectHitSomethingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 922c8b4b25631e542b69924a560bbf69, type: 3}
     - target: {fileID: 3028388707540043625, guid: e64fa8075ff46474cb24105a0cfa4d7e,
         type: 3}
       propertyPath: m_LocalPosition.x
