@@ -108,9 +108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaff192d60d1f8b48b9e2bb7977a4d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectHitSomethingSound: {fileID: 8300000, guid: 48e76b4347997924ba69ba64e42f57de,
+  objectHitSomethingSound: {fileID: 8300000, guid: 922c8b4b25631e542b69924a560bbf69,
     type: 3}
   soundDevideBy: 1.25
+  minRelativeVelocity: 3
+  AIMoveToSound: {fileID: 0}
   objectSoundWhenUsed: {fileID: 8300000, guid: 48e76b4347997924ba69ba64e42f57de, type: 3}
   thisObjectAudioSource: {fileID: 3028388707540043622}
   ThisItemIsUsedAudioDimension: 1

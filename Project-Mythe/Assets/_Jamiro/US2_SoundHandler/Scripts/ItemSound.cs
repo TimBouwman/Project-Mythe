@@ -9,8 +9,9 @@ public class ItemSound : MonoBehaviour
     [SerializeField] [Tooltip("geluidje wat het object moet maken als hij iets raakt")] private AudioClip objectHitSomethingSound = null;
     [SerializeField] [Tooltip("de magnitude van de velocity / 100  en dan nog eens delen door dit")] private float soundDevideBy = 1.25f;
     private AudioSource objectPoolingAudioSource;
+    //variable voor het script zelf
     private float mag;
-
+    [SerializeField] private float minRelativeVelocity = 3;
     // variable voor audio wat van dit object komt;
     [SerializeField] [Tooltip("geluidje wat het object moet maken wanneer je het object gebruikt")] private AudioClip objectSoundWhenUsed = null;
     [SerializeField] [Tooltip("de audiosource die op dit item moet")] private AudioSource thisObjectAudioSource;
@@ -27,16 +28,22 @@ public class ItemSound : MonoBehaviour
     // checkt voor collision met iets en als het hard genoeg is speeld ie geluid af
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.relativeVelocity.magnitude >= 3)
+        if (collision.relativeVelocity.magnitude >= minRelativeVelocity)
         {
             mag = collision.relativeVelocity.magnitude;
             PoolItemSound();
+            AIListenToSound();
         }
     }
     #endregion
 
     #region Sound methods
     
+    private void AIListenToSound()
+    {
+        AIMoveToSound.playSound(transform.position);
+    }
+
     private void SetAudioSettingForThisObject()
     {
         thisObjectAudioSource.clip = objectSoundWhenUsed;
@@ -73,6 +80,7 @@ public class ItemSound : MonoBehaviour
     private void ItemIsUsedSound()
     {
         thisObjectAudioSource.Play();
+        AIListenToSound();
     }
     #endregion
 }
