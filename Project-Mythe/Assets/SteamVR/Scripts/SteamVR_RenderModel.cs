@@ -128,7 +128,7 @@ namespace Valve.VR
 
         private void OnHideRenderModels(bool hidden)
         {
-            SetMeshRendererState(!hidden);
+            //SetMeshRendererState(!hidden);
         }
 
         private void OnDeviceConnected(int i, bool connected)
