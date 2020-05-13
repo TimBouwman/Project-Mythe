@@ -17,7 +17,7 @@ public class Calibrator : MonoBehaviour
     [SerializeField] private float targetheight = 1.8f;
 
     [Header("actions")]
-    /// <summary> The action that needs to be called on both hands inoder to calibrate the player </summary>
+    /// <summary> The action that needs to be called on both hands inorder to calibrate the player </summary>
     [SerializeField] private SteamVR_Action_Boolean calibrate;
 
     [Header("Objects")]

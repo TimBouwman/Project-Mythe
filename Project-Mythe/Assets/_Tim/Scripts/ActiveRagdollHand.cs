@@ -93,8 +93,11 @@ public class ActiveRagdollHand : MonoBehaviour
             //transition from the controller rotation to the turn idex rotation depending on
             //the current distance between the hand and the collider
             float i = currentDistance / environmentRadius;
-            this.transform.rotation = Quaternion.Lerp(turnIndex.transform.rotation, controller.rotation, i);
-            turnIndexHolder.LookAt(closestCollider.ClosestPoint(this.transform.position));
+            Quaternion newRotation = Quaternion.Lerp(turnIndex.transform.rotation, controller.rotation, i);
+
+            Vector3 eulerRotation = new Vector3(newRotation.eulerAngles.x, controller.rotation.eulerAngles.y, newRotation.eulerAngles.z);
+
+            this.transform.rotation = Quaternion.Euler(eulerRotation);
         }
         else this.transform.rotation = controller.rotation;
     }
@@ -103,7 +106,7 @@ public class ActiveRagdollHand : MonoBehaviour
     /// </summary>
     private void GrabHandler()
     {
-        
+
     }
     #endregion
 }

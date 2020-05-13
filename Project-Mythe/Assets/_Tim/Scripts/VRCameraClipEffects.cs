@@ -29,7 +29,6 @@ public class VRCameraClipEffects : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("t");
         reverbZone.reverbPreset = this.reverbPreset;
         volume.weight = 1;
     }

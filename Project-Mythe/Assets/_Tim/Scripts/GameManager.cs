@@ -11,8 +11,6 @@ namespace Management
         /// <summary> The size the player object should be relative to the size of the player irl </summary>
         private static Vector3 PLAYER_SCALE;
         public Vector3 PlayerScale { set { PLAYER_SCALE = value; } }
-
-        
         #endregion
 
         #region Unity Methods
