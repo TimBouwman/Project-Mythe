@@ -2,6 +2,7 @@
 //Github: https://github.com/TimBouwman
 using UnityEngine;
 using Valve.VR;
+using System.Collections;
 
 /// <summary>
 /// 
@@ -20,6 +21,12 @@ public class ActiveRagdollHand : MonoBehaviour
     [SerializeField] private float itemRadius = 0.1f;
     private LayerMask layer;
 
+    [Header("Actions")]
+    /// <summary>  <summary>
+    [SerializeField] private SteamVR_Action_Boolean grab;
+    [Tooltip("")]
+    [SerializeField] private SteamVR_Input_Sources grabSource;
+
     [Header("Objects")]
     [SerializeField] private Transform controller;
     [Tooltip("This is the object that will rotate to the nearest collider but it is not the object the rotation will be read from")]
@@ -27,6 +34,7 @@ public class ActiveRagdollHand : MonoBehaviour
     [Tooltip("This is the object the rotation for the hand is read from")]
     [SerializeField] private Transform turnIndex;
     private Rigidbody rb;
+    private Transform heldObject;
     #endregion
 
     #region Unity Methods
@@ -108,7 +116,21 @@ public class ActiveRagdollHand : MonoBehaviour
     /// </summary>
     private void GrabHandler()
     {
-
+        if (grab.GetState(grabSource))
+        {
+            Collider[] colliders = Physics.OverlapSphere(this.transform.position + center, itemRadius, itemLayer);
+            if (colliders.Length > 0)
+            {
+                heldObject = colliders[0].transform;
+                heldObject.parent = this.transform;
+                heldObject.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
+        if (grab.GetStateUp(grabSource))
+        {
+            heldObject.parent = null;
+            heldObject.GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
     #endregion
 }
