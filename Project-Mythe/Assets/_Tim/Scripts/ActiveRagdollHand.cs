@@ -62,7 +62,9 @@ public class ActiveRagdollHand : MonoBehaviour
         this.transform.position = controller.position;
     }
     /// <summary>
-    /// 
+    /// this is responsible for setting the rotation of the hand if the hand is not close to another collider
+    /// it will just copy the rotation of the controller. but when the hand gets closer to a collider the
+    /// hand will turn to the closest part of that collider.
     /// </summary>
     private void UpdateHandRot()
     {
