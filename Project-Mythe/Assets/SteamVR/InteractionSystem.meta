@@ -1,8 +1,20 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Project-Mythe/Assets/SteamVR/InteractionSystem.meta
 guid: c8941a9f98c35d84cb19a5e044467de9
+=======
+guid: 973d9a6f6b7f87f4e8226f8302471b6d
+>>>>>>> US2-ItemInteraction:Project-Mythe/Assets/SteamVR_Input/ActionSetClasses.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
+=======
+guid: c8941a9f98c35d84cb19a5e044467de9
+folderAsset: yes
+timeCreated: 1479762244
+licenseType: Store
+DefaultImporter:
+>>>>>>> US2-ItemInteraction
   userData: 
   assetBundleName: 
   assetBundleVariant: 

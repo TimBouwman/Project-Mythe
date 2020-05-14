@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:Project-Mythe/Assets/SteamVR/Input.meta
 guid: 034ad660702976d4da58a18ccae19443
 =======
@@ -7,6 +8,13 @@ guid: 7ed0984bea011c64c9816564d4b1388d
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
+=======
+guid: 034ad660702976d4da58a18ccae19443
+folderAsset: yes
+timeCreated: 1521243381
+licenseType: Store
+DefaultImporter:
+>>>>>>> US2-ItemInteraction
   userData: 
   assetBundleName: 
   assetBundleVariant: 
