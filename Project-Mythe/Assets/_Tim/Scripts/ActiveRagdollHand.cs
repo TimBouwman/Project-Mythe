@@ -3,6 +3,7 @@
 using UnityEngine;
 using Valve.VR;
 using System.Collections;
+using Valve.Newtonsoft.Json.Utilities;
 
 /// <summary>
 /// 
@@ -19,7 +20,7 @@ public class ActiveRagdollHand : MonoBehaviour
     [SerializeField] private LayerMask itemLayer;
     [SerializeField] private float itemRadius = 0.1f;
 
-    
+    [SerializeField] private float throwForceMultiplier;
 
     [Header("Actions")]
     /// <summary>  <summary>
@@ -34,16 +35,18 @@ public class ActiveRagdollHand : MonoBehaviour
     [SerializeField] private Transform turnIndexHolder;
     [Tooltip("This is the object the rotation for the hand is read from")]
     [SerializeField] private Transform turnIndex;
-    private Transform heldObject;
+    private Rigidbody rb;
+    private Rigidbody heldObject;
     private bool isHolding = false;
+    private FixedJoint joint;
     #endregion
 
     #region Unity Methods
     private void Start()
     {
-
+        rb = this.GetComponent<Rigidbody>();
     }
-    private void FixedUpdate()
+    private void Update()
     {
         GrabHandler();
     }
@@ -77,7 +80,7 @@ public class ActiveRagdollHand : MonoBehaviour
     private void UpdateHandRot()
     {
         Collider[] colliders = Physics.OverlapSphere(this.transform.position + center, environmentRadius, environmentLayer);
-        if (colliders.Length > 0)
+        if (colliders.Length > 0 && !isHolding)
         {
             //Look for the closest point inside OverlapSphere
             float minDistance = environmentRadius;
@@ -110,6 +113,7 @@ public class ActiveRagdollHand : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(eulerRotation);
         }
         else this.transform.rotation = controller.rotation;
+        
     }
     /// <summary>
     /// 
@@ -122,17 +126,18 @@ public class ActiveRagdollHand : MonoBehaviour
             if (colliders.Length > 0)
             {
                 isHolding = true;
-                heldObject = colliders[0].transform;
-                heldObject.parent = this.transform;
-                heldObject.GetComponent<Rigidbody>().isKinematic = true;
+                heldObject = colliders[0].gameObject.GetComponent<Rigidbody>();
+                joint = colliders[0].gameObject.AddComponent<FixedJoint>();
+                joint.connectedBody = rb;
             }
         }
         if (grab.GetStateUp(grabSource) && isHolding)
         {
+            Vector3 velocity = pose.GetVelocity().normalized;
+            Debug.Log(velocity);
             isHolding = false;
-            heldObject.parent = null;
-            heldObject.GetComponent<Rigidbody>().isKinematic = false;
-            heldObject.GetComponent<Rigidbody>().velocity = pose.GetVelocity();
+            Destroy(joint);
+            heldObject.AddForce(velocity * throwForceMultiplier, ForceMode.Impulse);
         }
     }
     #endregion
