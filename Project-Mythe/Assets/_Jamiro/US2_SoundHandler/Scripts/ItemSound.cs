@@ -24,7 +24,10 @@ public class ItemSound : MonoBehaviour
     #region Unity methods
 
     private void Start() { if (thisObjectAudioSource != null) thisObjectAudioSource = GetComponent<AudioSource>(); }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) { gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(1000, 1000, 0)); }
+    }
     // checkt voor collision met iets en als het hard genoeg is speeld ie geluid af
     private void OnCollisionEnter(Collision collision)
     {
