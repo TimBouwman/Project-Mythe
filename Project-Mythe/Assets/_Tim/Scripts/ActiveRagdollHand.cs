@@ -7,7 +7,6 @@ using System.Collections;
 /// <summary>
 /// 
 /// </summary>
-[RequireComponent(typeof(Rigidbody))]
 public class ActiveRagdollHand : MonoBehaviour
 {
     #region Variables
@@ -19,13 +18,15 @@ public class ActiveRagdollHand : MonoBehaviour
     [Space(7f)]
     [SerializeField] private LayerMask itemLayer;
     [SerializeField] private float itemRadius = 0.1f;
-    private LayerMask layer;
+
+    
 
     [Header("Actions")]
     /// <summary>  <summary>
     [SerializeField] private SteamVR_Action_Boolean grab;
     [Tooltip("")]
     [SerializeField] private SteamVR_Input_Sources grabSource;
+    [SerializeField] private SteamVR_Behaviour_Pose pose;
 
     [Header("Objects")]
     [SerializeField] private Transform controller;
@@ -33,15 +34,14 @@ public class ActiveRagdollHand : MonoBehaviour
     [SerializeField] private Transform turnIndexHolder;
     [Tooltip("This is the object the rotation for the hand is read from")]
     [SerializeField] private Transform turnIndex;
-    private Rigidbody rb;
     private Transform heldObject;
+    private bool isHolding = false;
     #endregion
 
     #region Unity Methods
     private void Start()
     {
-        layer = itemLayer + environmentLayer;
-        rb = this.GetComponent<Rigidbody>();
+
     }
     private void FixedUpdate()
     {
@@ -116,20 +116,23 @@ public class ActiveRagdollHand : MonoBehaviour
     /// </summary>
     private void GrabHandler()
     {
-        if (grab.GetState(grabSource))
+        if (grab.GetState(grabSource) && !isHolding)
         {
             Collider[] colliders = Physics.OverlapSphere(this.transform.position + center, itemRadius, itemLayer);
             if (colliders.Length > 0)
             {
+                isHolding = true;
                 heldObject = colliders[0].transform;
                 heldObject.parent = this.transform;
                 heldObject.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
-        if (grab.GetStateUp(grabSource))
+        if (grab.GetStateUp(grabSource) && isHolding)
         {
+            isHolding = false;
             heldObject.parent = null;
             heldObject.GetComponent<Rigidbody>().isKinematic = false;
+            heldObject.GetComponent<Rigidbody>().velocity = pose.GetVelocity();
         }
     }
     #endregion
