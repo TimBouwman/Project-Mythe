@@ -41,6 +41,7 @@ public class VRMovement : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private Transform head;
+    [SerializeField] private Transform lookIndex;
     public Transform Head { get { return this.head; } }
     private CharacterController cc;
     #endregion
@@ -87,10 +88,15 @@ public class VRMovement : MonoBehaviour
     /// </summary>
     private void MovementHandler()
     {
-        if(moveInput.GetAxis(moveInputSource) != Vector2.zero)
+        Quaternion rotation = head.localRotation;
+        rotation.x = 0;
+        rotation.z = 0;
+        lookIndex.localRotation = rotation;
+
+        if (moveInput.GetAxis(moveInputSource) != Vector2.zero)
         {
             Vector2 input = moveInput.GetAxis(moveInputSource);
-            Vector3 move = head.right * input.x + head.forward * input.y;
+            Vector3 move = head.right * input.x + lookIndex.forward * input.y;
             cc.Move(move * speed * Time.deltaTime);
         }
     }

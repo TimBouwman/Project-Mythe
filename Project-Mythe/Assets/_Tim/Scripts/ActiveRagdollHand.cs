@@ -4,6 +4,7 @@ using UnityEngine;
 using Valve.VR;
 using System.Collections;
 using Valve.Newtonsoft.Json.Utilities;
+using System.Runtime.CompilerServices;
 
 /// <summary>
 /// 
@@ -39,12 +40,17 @@ public class ActiveRagdollHand : MonoBehaviour
     private Rigidbody heldObject;
     private bool isHolding = false;
     private FixedJoint joint;
+    private Rigidbody simulator;
     #endregion
 
     #region Unity Methods
     private void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+
+        simulator = new GameObject().AddComponent<Rigidbody>();
+        simulator.transform.name = "Simulator";
+        simulator.transform.parent = this.transform.parent;
     }
     private void Update()
     {
@@ -120,6 +126,8 @@ public class ActiveRagdollHand : MonoBehaviour
     /// </summary>
     private void GrabHandler()
     {
+        simulator.velocity = (this.transform.position - simulator.position) * 50f;
+        
         if (grab.GetState(grabSource) && !isHolding)
         {
             Collider[] colliders = Physics.OverlapSphere(this.transform.position + center, itemRadius, itemLayer);
@@ -133,11 +141,9 @@ public class ActiveRagdollHand : MonoBehaviour
         }
         if (grab.GetStateUp(grabSource) && isHolding)
         {
-            Vector3 velocity = pose.GetVelocity().normalized;
-            Debug.Log(velocity);
             isHolding = false;
             Destroy(joint);
-            heldObject.AddForce(velocity * throwForceMultiplier, ForceMode.Impulse);
+            heldObject.velocity = simulator.velocity * 2f;
         }
     }
     #endregion
