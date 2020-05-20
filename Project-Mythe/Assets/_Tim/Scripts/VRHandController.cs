@@ -2,14 +2,11 @@
 //Github: https://github.com/TimBouwman
 using UnityEngine;
 using Valve.VR;
-using System.Collections;
-using Valve.Newtonsoft.Json.Utilities;
-using System.Runtime.CompilerServices;
 
 /// <summary>
 /// 
 /// </summary>
-public class ActiveRagdollHand : MonoBehaviour
+public class VRHandController : MonoBehaviour
 {
     #region Variables
     [Header("OverlapSphere")]
@@ -37,7 +34,7 @@ public class ActiveRagdollHand : MonoBehaviour
     [Tooltip("This is the object the rotation for the hand is read from")]
     [SerializeField] private Transform turnIndex;
     private Rigidbody rb;
-    private Rigidbody heldObject;
+    private Item heldItem;
     private bool isHolding = false;
     private FixedJoint joint;
     private Rigidbody simulator;
@@ -96,6 +93,7 @@ public class ActiveRagdollHand : MonoBehaviour
                 //get the 2 points
                 Vector3 a = this.transform.position;
                 Vector3 b = collider.ClosestPoint(a);
+
                 //compare the distance between point a and point b
                 if ((a - b).sqrMagnitude < minDistance * minDistance)
                 {
@@ -105,10 +103,13 @@ public class ActiveRagdollHand : MonoBehaviour
                     closestCollider = collider;
                 }
             }
+
             //turn object to the closest collider for a reference rotation 
             turnIndexHolder.LookAt(closestCollider.ClosestPoint(this.transform.position));
+
             //get current distance between the hand and the closest collider
             float currentDistance = Vector3.Distance(closestCollider.ClosestPoint(this.transform.position), this.transform.position);
+
             //transition from the controller rotation to the turn idex rotation depending on
             //the current distance between the hand and the collider
             float i = currentDistance / environmentRadius;
@@ -133,17 +134,42 @@ public class ActiveRagdollHand : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(this.transform.position + center, itemRadius, itemLayer);
             if (colliders.Length > 0)
             {
-                isHolding = true;
-                heldObject = colliders[0].gameObject.GetComponent<Rigidbody>();
-                joint = colliders[0].gameObject.AddComponent<FixedJoint>();
+                heldItem = colliders[0].gameObject.GetComponent<Item>();
+
+                //Get item position reletive to the hand
+                Vector3 itemPos = heldItem.Position;
+                if (grabSource == SteamVR_Input_Sources.LeftHand) itemPos.x = Mathf.Abs(itemPos.x);
+                if (grabSource == SteamVR_Input_Sources.RightHand) itemPos.x = -Mathf.Abs(itemPos.x);
+
+                //Get item Rotation
+                Quaternion itemRot = heldItem.Rotation; ;
+                if (grabSource == SteamVR_Input_Sources.LeftHand)
+                {
+                    itemRot.x *= -1;
+                    itemRot.y *= -1;
+                    itemRot.w *= -1;
+                }
+
+                //Apply item position and rotation
+                heldItem.transform.parent = this.transform;
+                heldItem.transform.localPosition = itemPos;
+                heldItem.transform.localRotation = itemRot;
+                heldItem.transform.parent = null;
+
+                //Create joint on HeldItem
+                joint = heldItem.gameObject.AddComponent<FixedJoint>();
+                joint.enablePreprocessing = false;
+                
+                //connect joint to hand
                 joint.connectedBody = rb;
+                isHolding = true;
             }
         }
         if (grab.GetStateUp(grabSource) && isHolding)
         {
             isHolding = false;
             Destroy(joint);
-            heldObject.velocity = simulator.velocity * 2f;
+            heldItem.rigidbody.velocity = simulator.velocity * throwForceMultiplier;
         }
     }
     #endregion
