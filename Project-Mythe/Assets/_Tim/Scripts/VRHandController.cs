@@ -21,9 +21,9 @@ public class VRHandController : MonoBehaviour
     [SerializeField] private float throwForceMultiplier;
 
     [Header("Actions")]
-    /// <summary>  <summary>
-    [SerializeField] private SteamVR_Action_Boolean grab;
-    [Tooltip("")]
+    /// <summary> The action used for grabing an object <summary>
+    [SerializeField] private SteamVR_Action_Boolean grabAction;
+    [Tooltip("The device the Grab Input Action should be registered on")]
     [SerializeField] private SteamVR_Input_Sources grabSource;
     [SerializeField] private SteamVR_Behaviour_Pose pose;
 
@@ -123,54 +123,61 @@ public class VRHandController : MonoBehaviour
         
     }
     /// <summary>
-    /// 
+    /// Handels the grabbing and throwing of items
     /// </summary>
     private void GrabHandler()
     {
+        //moves simulator to the hand position using the velocity
         simulator.velocity = (this.transform.position - simulator.position) * 50f;
         
-        if (grab.GetState(grabSource) && !isHolding)
+        if (grabAction.GetState(grabSource) && !isHolding)
         {
             Collider[] colliders = Physics.OverlapSphere(this.transform.position + center, itemRadius, itemLayer);
             if (colliders.Length > 0)
             {
                 heldItem = colliders[0].gameObject.GetComponent<Item>();
 
-                //Get item position reletive to the hand
-                Vector3 itemPos = heldItem.Position;
-                if (grabSource == SteamVR_Input_Sources.LeftHand) itemPos.x = Mathf.Abs(itemPos.x);
-                if (grabSource == SteamVR_Input_Sources.RightHand) itemPos.x = -Mathf.Abs(itemPos.x);
-
-                //Get item Rotation
-                Quaternion itemRot = heldItem.Rotation; ;
-                if (grabSource == SteamVR_Input_Sources.LeftHand)
-                {
-                    itemRot.x *= -1;
-                    itemRot.y *= -1;
-                    itemRot.w *= -1;
-                }
-
                 //Apply item position and rotation
                 heldItem.transform.parent = this.transform;
-                heldItem.transform.localPosition = itemPos;
-                heldItem.transform.localRotation = itemRot;
-                heldItem.transform.parent = null;
+                heldItem.transform.localPosition = GetItemPos(heldItem);
+                heldItem.transform.localRotation = GetItemRot(heldItem);
 
-                //Create joint on HeldItem
-                joint = heldItem.gameObject.AddComponent<FixedJoint>();
-                joint.enablePreprocessing = false;
-                
                 //connect joint to hand
-                joint.connectedBody = rb;
+                heldItem.Rigidbody.isKinematic = true;
+                heldItem.beingheld = true;
                 isHolding = true;
             }
         }
-        if (grab.GetStateUp(grabSource) && isHolding)
+        if (grabAction.GetStateUp(grabSource) && isHolding)
         {
+            //release helditem
+            heldItem.transform.parent = null;
+            heldItem.Rigidbody.isKinematic = false;
             isHolding = false;
-            Destroy(joint);
-            heldItem.rigidbody.velocity = simulator.velocity * throwForceMultiplier;
+            heldItem.beingheld = false;
+            //apply velocity from to simulator to the held item
+            heldItem.Rigidbody.velocity = simulator.velocity * throwForceMultiplier;
         }
+    }
+
+    public Vector3 GetItemPos(Item item)
+    {
+        Vector3 itemPos = item.Position;
+        if (grabSource == SteamVR_Input_Sources.LeftHand) itemPos.x = Mathf.Abs(itemPos.x);
+        if (grabSource == SteamVR_Input_Sources.RightHand) itemPos.x = -Mathf.Abs(itemPos.x);
+        return itemPos;
+    }
+    public Quaternion GetItemRot(Item item)
+    {
+        //Get item Rotation
+        Quaternion itemRot = item.Rotation; ;
+        if (grabSource == SteamVR_Input_Sources.LeftHand)
+        {
+            itemRot.x *= -1;
+            itemRot.y *= -1;
+            itemRot.w *= -1;
+        }
+        return itemRot;
     }
     #endregion
 }
