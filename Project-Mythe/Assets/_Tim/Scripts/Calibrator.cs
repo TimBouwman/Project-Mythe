@@ -33,7 +33,7 @@ public class Calibrator : MonoBehaviour
     #region Unity Methods
     private void Start()
     {
-        canvas = transform.GetChild(0).gameObject;
+        canvas = this.transform.GetChild(0).gameObject;
     }
     private void Update()
     {

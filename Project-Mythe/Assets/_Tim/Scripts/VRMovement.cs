@@ -15,9 +15,9 @@ public class VRMovement : MonoBehaviour
     #region Variables
     [Header("Movement Value's")]
     [Tooltip("The speed with which the player moves")]
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float speed = 2;
     [Tooltip("The amount the player rotates when using the snap rotation")]
-    [SerializeField] private float snapIncrement = 45f;
+    [SerializeField] private int snapIncrement = 45;
     /// <summary> Velocity is the speed that gets build up while the plays is falling. if the player is grounded it get set to 0.0f, -2.0f, 0.0f. </summary>
     private Vector3 velocity;
 
@@ -41,16 +41,21 @@ public class VRMovement : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private Transform head;
-    [SerializeField] private Transform lookIndex;
     public Transform Head { get { return this.head; } }
-    private CharacterController cc;
+    private Transform lookIndex;
+    private CharacterController characterController;
     #endregion
 
     #region Unity Methods
     private void Start()
     {
-        cc = this.GetComponent<CharacterController>();
-        //cc.enableOverlapRecovery = false;
+        characterController = this.GetComponent<CharacterController>();
+
+        //create look index
+        lookIndex = new GameObject("Look Index").transform;
+        lookIndex.transform.position = head.position;
+        lookIndex.transform.rotation = head.rotation;
+        lookIndex.transform.parent = head.parent;
     }
     private void Update()
     {
@@ -70,18 +75,18 @@ public class VRMovement : MonoBehaviour
     {
         //Sets the hight of the collider to the hight of the players head with a clamp for 1 to 2
         float headHight = Mathf.Clamp(head.localPosition.y, 1, 2);
-        cc.height = headHight;
+        characterController.height = headHight;
 
         //resets the center
         Vector3 center = Vector3.zero;
-        center.y = cc.height / 2;
-        center.y += cc.skinWidth;
+        center.y = characterController.height / 2;
+        center.y += characterController.skinWidth;
 
         //keeps the collider underneath the players head
         center.x = head.localPosition.x;
         center.z = head.localPosition.z;
 
-        cc.center = center;
+        characterController.center = center;
     }
     /// <summary>
     /// This method handels the movement of the player it does this reletive to the rotation of the head.
@@ -97,7 +102,7 @@ public class VRMovement : MonoBehaviour
         {
             Vector2 input = moveInput.GetAxis(moveInputSource);
             Vector3 move = head.right * input.x + lookIndex.forward * input.y;
-            cc.Move(move * speed * Time.deltaTime);
+            characterController.Move(move * speed * Time.deltaTime);
         }
     }
     /// <summary>
@@ -106,11 +111,11 @@ public class VRMovement : MonoBehaviour
     private void GravityHandler()
     {
         //this if statment makes sure you stop exelorating when you on the ground
-        if (cc.isGrounded && velocity.y < 0f)
+        if (characterController.isGrounded && velocity.y < 0f)
             velocity.y = -2f;
         else //increasing velocity while faling
             velocity += Physics.gravity * Time.deltaTime;
-        cc.Move(velocity * Time.deltaTime);
+        characterController.Move(velocity * Time.deltaTime);
     }
     /// <summary>
     /// Turns the player a certain amount to the left or to the right.
