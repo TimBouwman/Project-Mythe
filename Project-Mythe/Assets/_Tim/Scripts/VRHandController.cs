@@ -37,7 +37,6 @@ public class VRHandController : MonoBehaviour
     private Rigidbody rb;
     private Item heldItem;
     private bool isHolding = false;
-    public bool IsHolding { get { return this.isHolding; } }
     private FixedJoint joint;
     private Rigidbody simulator;
     #endregion
@@ -158,7 +157,7 @@ public class VRHandController : MonoBehaviour
             heldItem.transform.parent = null;
             heldItem.Rigidbody.isKinematic = false;
             isHolding = false;
-            this.gameObject.layer = 14;
+            this.gameObject.layer = handLayer.ToLayer();
             heldItem.beingheld = false;
             heldItem.hand = null;
             //apply velocity from to simulator to the held item

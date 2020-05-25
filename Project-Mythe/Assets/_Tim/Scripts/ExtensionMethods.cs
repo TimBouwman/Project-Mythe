@@ -29,4 +29,16 @@ public static class ExtensionMethods
         t1.position = Vector3.Lerp(t1.position, t2.position, t);
         t1.rotation = Quaternion.Lerp(t1.rotation, t2.rotation, t);
     }
+
+    public static int ToLayer(this LayerMask layerMask)
+    {
+        int layerNumber = 0;
+        int layer = layerMask.value;
+        while (layer > 0)
+        {
+            layer = layer >> 1;
+            layerNumber++;
+        }
+        return layerNumber - 1;
+    }
 }

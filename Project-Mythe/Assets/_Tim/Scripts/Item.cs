@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
     public AnimationClip HandPose { get { return this.handPose; } }
     private Rigidbody rb;
     public Rigidbody Rigidbody { get { return this.rb; } }
-    [HideInInspector] public bool beingheld;
+    public bool beingheld;
     [HideInInspector] public GameObject hand;
     #endregion
     
