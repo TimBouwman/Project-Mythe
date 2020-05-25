@@ -33,9 +33,11 @@ public class VRHandController : MonoBehaviour
     [SerializeField] private Transform turnIndexHolder;
     [Tooltip("This is the object the rotation for the hand is read from")]
     [SerializeField] private Transform turnIndex;
+    [SerializeField] private LayerMask handLayer;
     private Rigidbody rb;
     private Item heldItem;
     private bool isHolding = false;
+    public bool IsHolding { get { return this.isHolding; } }
     private FixedJoint joint;
     private Rigidbody simulator;
     #endregion
@@ -145,7 +147,9 @@ public class VRHandController : MonoBehaviour
                 //connect joint to hand
                 heldItem.Rigidbody.isKinematic = true;
                 heldItem.beingheld = true;
+                heldItem.hand = this.gameObject;
                 isHolding = true;
+                this.gameObject.layer = 0;
             }
         }
         if (grabAction.GetStateUp(grabSource) && isHolding)
@@ -154,7 +158,9 @@ public class VRHandController : MonoBehaviour
             heldItem.transform.parent = null;
             heldItem.Rigidbody.isKinematic = false;
             isHolding = false;
+            this.gameObject.layer = 14;
             heldItem.beingheld = false;
+            heldItem.hand = null;
             //apply velocity from to simulator to the held item
             heldItem.Rigidbody.velocity = simulator.velocity * throwForceMultiplier;
         }

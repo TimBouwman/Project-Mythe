@@ -20,6 +20,7 @@ public class Item : MonoBehaviour
     private Rigidbody rb;
     public Rigidbody Rigidbody { get { return this.rb; } }
     [HideInInspector] public bool beingheld;
+    [HideInInspector] public GameObject hand;
     #endregion
     
     private void Awake()
