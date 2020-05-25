@@ -25,6 +25,7 @@ public class Match : Item
         matchHead = this.transform.GetChild(0);
         anim = this.GetComponent<Animator>();
         matchHeadIndex = new GameObject("Match Head Index").transform;
+        matchHeadIndex.parent = this.transform;
     }
 
     private void Update()

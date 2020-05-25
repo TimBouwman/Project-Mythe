@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Tim/Scenes/CalibrationScene.unity
-    guid: 8af9906ffda451f40813dbca109f0fe9
-  - enabled: 1
-    path: Assets/_Build Scenes/Main.unity
-    guid: 3084373043183c94e9ecd3c89ad89057
+    path: Assets/_Tim/Scenes/ItemTestScene.unity
+    guid: 274d280c8fbde954282d6a14f15ebd1e
   m_configObjects: {}

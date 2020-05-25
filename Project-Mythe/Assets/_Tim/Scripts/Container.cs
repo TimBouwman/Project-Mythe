@@ -41,6 +41,7 @@ public class Container : MonoBehaviour
         //setting and creating everything for the current item
         currentItemAmount = itemPositions.Length;
         currentItemIndex = new GameObject("Item Index").transform;
+        currentItemIndex.parent = this.transform;
         
         //disables all the colliders of the items in the container
         foreach (Item item in items)
@@ -67,20 +68,37 @@ public class Container : MonoBehaviour
         //set current item if current item equals null
         if (currentItem == null)
             currentItem = items[currentItemAmount - 1];
-        if (currentItem.GetComponent<Collider>().enabled != false)
+
+        //check if current item is picked up
+        if (currentItem.beingheld)
+        {
+            hand = null;
+            items.RemoveAt(currentItemAmount - 1);
+            currentItem = null;
+            currentItemAmount -= 1;
+            if (!items.Any())
+                empty = true;
+            else currentItem = items[currentItemAmount - 1];
+        }
+
+        if (currentItem != null && currentItem.GetComponent<Collider>().enabled != false)
             currentItem.GetComponent<Collider>().enabled = false;
 
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, raduis, handLayer);
         if (colliders.Length > 0)
         {
+            if (parentItem != null && parentItem.beingheld)
+                parentItem.gameObject.layer = 0;
+            else parentItem.gameObject.layer = itemLayer.ToLayer();
+
             //set hand object if hand equals null
             if (hand == null)
                 hand = colliders[0].GetComponent<VRHandController>();
 
             //set current item index in the correct position and rotation
-            if (currentItemIndex.parent == null)
+            if (currentItemIndex.parent != hand)
             {
-                currentItemIndex.parent = colliders[0].transform;
+                currentItemIndex.parent = hand.transform;
                 currentItemIndex.localPosition = hand.GetItemPos(currentItem);
                 currentItemIndex.localRotation = hand.GetItemRot(currentItem);
             }
@@ -91,15 +109,5 @@ public class Container : MonoBehaviour
         }
         else if (currentItem.transform.position != itemPositions[currentItemAmount - 1].position && currentItem.transform.rotation != itemPositions[currentItemAmount - 1].rotation)
             currentItem.transform.Lerp(itemPositions[currentItemAmount - 1], Time.deltaTime * 3);
-
-        if (currentItem.beingheld)
-        {
-            hand = null;
-            items.RemoveAt(currentItemAmount - 1);
-            currentItem = null;
-            currentItemAmount -= 1;
-            if (!items.Any())
-                empty = true;
-        }
     }
 }

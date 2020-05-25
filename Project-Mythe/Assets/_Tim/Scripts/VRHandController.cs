@@ -83,6 +83,7 @@ public class VRHandController : MonoBehaviour
     /// </summary>
     private void UpdateHandRot()
     {
+        /*
         Collider[] colliders = Physics.OverlapSphere(this.transform.position + center, environmentRadius, environmentLayer);
         if (colliders.Length > 0 && !isHolding)
         {
@@ -120,7 +121,7 @@ public class VRHandController : MonoBehaviour
 
             this.transform.rotation = Quaternion.Euler(eulerRotation);
         }
-        else this.transform.rotation = controller.rotation;
+        else*/ this.transform.rotation = controller.rotation;
         
     }
     /// <summary>
