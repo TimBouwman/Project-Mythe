@@ -27,7 +27,7 @@ public class CheckAnimationIsDone : MonoBehaviour
 
         if(done)
         {
-            
+           
         }
     }
 }
