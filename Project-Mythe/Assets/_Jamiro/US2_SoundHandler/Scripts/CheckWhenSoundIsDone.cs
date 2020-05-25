@@ -6,11 +6,6 @@ public class CheckWhenSoundIsDone : MonoBehaviour
 {
     private AudioSource audioSource;
     private float audioLength;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     private void Awake()
     {
