@@ -116,11 +116,12 @@ MonoBehaviour:
   handPose: {fileID: 0}
   beingheld: 0
   hand: {fileID: 0}
-  matchHeadColliderRaduis: 0.003
+  matchHeadColliderRaduis: 0.004
   layer:
     serializedVersion: 2
     m_Bits: 8192
   minSpeed: 0.01
+  colliders: []
 --- !u!95 &1221925854281168909
 Animator:
   serializedVersion: 3

@@ -18,6 +18,7 @@ public class Match : Item
     private bool used = false;
     private Transform matchHeadIndex;
     private int frams;
+    [SerializeField] private Collider[] colliders; 
     #endregion
 
     #region Unity Methods
@@ -44,13 +45,15 @@ public class Match : Item
 
     private void MatchHeadHandler()
     {
-        Collider[] colliders = Physics.OverlapSphere(matchHead.position, matchHeadColliderRaduis, layer);
-
+        colliders = Physics.OverlapSphere(matchHead.position, matchHeadColliderRaduis, layer);
+        Debug.Log("1");
         if (colliders.Length > 0)
         {
+            Debug.Log("2");
             MatchHeadIndexRelativeMovement(colliders[0].transform);
             if (Mathf.Abs(oldPos - matchHeadIndex.position.x) > minSpeed && !used)
             {
+                Debug.Log("3");
                 frams++;
                 //if(frams > 5)
                 {
@@ -60,7 +63,6 @@ public class Match : Item
             }
             oldPos = matchHeadIndex.position.x;
         }
-        else if (frams != 0) frams = 0;
     }
 
     private void MatchHeadIndexRelativeMovement(Transform parent)
