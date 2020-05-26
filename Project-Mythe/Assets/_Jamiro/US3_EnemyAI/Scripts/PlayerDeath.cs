@@ -8,20 +8,19 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private NavMeshAgent EnemyAgent;
     [SerializeField] private GameObject deathBox = null;
     [SerializeField] private GameObject enemy;
-    private float timeLeft;
-    private bool timer;
+    [SerializeField] private float minimalDistance;
+    private bool playerIsTargeted;
 
     void Update()
     {
-        if(timer)
-        {
-            timeLeft -= Time.deltaTime;
-            if(timeLeft < 0)
+       
+        
+            if (playerIsTargeted &&Vector3.Distance(transform.position, enemy.transform.position) < minimalDistance)
             {
                 DeathByLookingInHisEyes();
-                timer = false;
+                playerIsTargeted = false;
             }
-        }
+        
     }
     public void DeathByLookingInHisEyes()
     {
@@ -29,10 +28,7 @@ public class PlayerDeath : MonoBehaviour
     }
     public void SetDestenationToKill()
     {
-        float distance = Vector3.Distance(transform.position, enemy.transform.position);
-        print(distance);
-        timeLeft = distance / 47;
-        timer = true;
+        playerIsTargeted = true;
         EnemyAgent.destination = transform.position;
     }
 
