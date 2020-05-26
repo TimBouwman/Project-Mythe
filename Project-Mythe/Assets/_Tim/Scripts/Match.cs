@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 
 /// </summary>
+[RequireComponent(typeof(Animator))]
 public class Match : Item
 {
     #region Variables

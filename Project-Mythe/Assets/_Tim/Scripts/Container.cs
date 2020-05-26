@@ -47,6 +47,7 @@ public class Container : MonoBehaviour
         foreach (Item item in items)
         {
             item.GetComponent<Collider>().enabled = false;
+            item.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
     private void Update()
