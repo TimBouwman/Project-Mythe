@@ -13,14 +13,11 @@ public class PlayerDeath : MonoBehaviour
 
     void Update()
     {
-       
-        
-            if (playerIsTargeted &&Vector3.Distance(transform.position, enemy.transform.position) < minimalDistance)
-            {
-                DeathByLookingInHisEyes();
-                playerIsTargeted = false;
-            }
-        
+        if (playerIsTargeted &&Vector3.Distance(transform.position, enemy.transform.position) < minimalDistance)
+        {
+            DeathByLookingInHisEyes();
+            playerIsTargeted = false;
+        }
     }
     public void DeathByLookingInHisEyes()
     {

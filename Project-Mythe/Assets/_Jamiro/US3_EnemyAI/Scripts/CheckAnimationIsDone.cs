@@ -20,8 +20,7 @@ public class CheckAnimationIsDone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (!done && timeleft > 0)
+        if (timeleft > 0)
         {
             timeleft -= Time.deltaTime;
         }
@@ -32,7 +31,5 @@ public class CheckAnimationIsDone : MonoBehaviour
             enemyOnHead.SetActive(true);
             player.transform.position = deathPosition.position;
         }
-
-
     }
 }

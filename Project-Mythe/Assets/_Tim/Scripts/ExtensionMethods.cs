@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor.Rendering;
 
 public static class ExtensionMethods
 {
