@@ -16,7 +16,6 @@ public class PlayerDeath : MonoBehaviour
         if(timer)
         {
             timeLeft -= Time.deltaTime;
-            print(timeLeft);
             if(timeLeft < 0)
             {
                 DeathByLookingInHisEyes();
@@ -32,7 +31,7 @@ public class PlayerDeath : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, enemy.transform.position);
         print(distance);
-        timeLeft = distance / 25;
+        timeLeft = distance / 47;
         timer = true;
         EnemyAgent.destination = transform.position;
     }

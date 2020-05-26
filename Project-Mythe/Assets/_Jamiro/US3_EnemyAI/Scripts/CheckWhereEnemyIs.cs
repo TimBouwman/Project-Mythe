@@ -12,7 +12,6 @@ public class CheckWhereEnemyIs : MonoBehaviour
     private float angle = 0;
     private Vector3 targetDir = new Vector3();
     private int layerMask = 1 << 8;
-    private float intensity = 0;
     private bool enemySeen = false;
     void Start()
     {
@@ -35,11 +34,8 @@ public class CheckWhereEnemyIs : MonoBehaviour
     {
         if (!Physics.Linecast(transform.position, enemyHead.position))
         {
-            RenderSettings.ambientIntensity = intensity;
-            RenderSettings.reflectionIntensity = intensity;
             enemySeen = true;
             playerIsDeath.SetDestenationToKill();
-            
         }
     }
 
