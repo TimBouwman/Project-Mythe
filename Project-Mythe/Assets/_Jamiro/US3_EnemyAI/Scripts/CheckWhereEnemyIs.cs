@@ -31,6 +31,7 @@ public class CheckWhereEnemyIs : MonoBehaviour
     }
     private void CheckIfYouLookAtEnemeyHead()
     {
+        Debug.DrawRay(transform.position, enemyHead.position);
         if (!Physics.Linecast(transform.position, enemyHead.position))
         {
             enemySeen = true;
