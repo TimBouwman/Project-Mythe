@@ -10,16 +10,10 @@ public class CheckWhereEnemyIs : MonoBehaviour
     [SerializeField] private PlayerDeath playerIsDeath = null;
     private float angle = 0;
     private Vector3 targetDir = new Vector3();
-    private int layerMask = 1 << 8;
     private bool enemySeen = false;
-    void Start()
-    {
-        layerMask = ~layerMask;
-    }
-    void Update()
-    {
-        if(!enemySeen) CheckIfEnemyIsInAngle();
-    }
+
+    void Update() { if(!enemySeen) CheckIfEnemyIsInAngle(); }
+
     private void CheckIfEnemyIsInAngle()
     {
         targetDir = enemyHead.position - transform.position;
@@ -29,6 +23,7 @@ public class CheckWhereEnemyIs : MonoBehaviour
             CheckIfYouLookAtEnemeyHead();
         }  
     }
+
     private void CheckIfYouLookAtEnemeyHead()
     {
         Debug.DrawRay(transform.position, enemyHead.position);
