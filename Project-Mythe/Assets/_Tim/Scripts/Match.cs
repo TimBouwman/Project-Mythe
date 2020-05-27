@@ -17,7 +17,6 @@ public class Match : Item
     private Animator anim;
     private bool used = false;
     private Transform matchHeadIndex;
-    private int frams;
     [SerializeField] private Collider[] colliders; 
     #endregion
 
@@ -51,17 +50,13 @@ public class Match : Item
         {
             Debug.Log("2");
             MatchHeadIndexRelativeMovement(colliders[0].transform);
-            if (Mathf.Abs(oldPos - matchHeadIndex.position.x) > minSpeed && !used)
+            if (Mathf.Abs(oldPos - matchHeadIndex.localPosition.x) > minSpeed && !used)
             {
                 Debug.Log("3");
-                frams++;
-                //if(frams > 5)
-                {
-                    anim.Play("MatchLight", -1);
-                    used = true;
-                }   
+                anim.Play("Burning", -1);
+                used = true;
             }
-            oldPos = matchHeadIndex.position.x;
+            oldPos = matchHeadIndex.localPosition.x;
         }
     }
 

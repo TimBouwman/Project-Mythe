@@ -39,13 +39,16 @@ public class VRHandController : MonoBehaviour
     private bool isHolding = false;
     private FixedJoint joint;
     private Rigidbody simulator;
+    private Animator anim;
+    public Animation anim1;
     #endregion
 
     #region Unity Methods
     private void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-
+        anim = this.GetComponent<Animator>();
+        anim1.Play();
         simulator = new GameObject().AddComponent<Rigidbody>();
         simulator.transform.name = "Simulator";
         simulator.transform.parent = this.transform.parent;
@@ -53,11 +56,14 @@ public class VRHandController : MonoBehaviour
     private void Update()
     {
         GrabHandler();
+        
     }
     private void LateUpdate()
     {
         UpdateHandPos();
         UpdateHandRot();
+
+        
     }
     private void OnDrawGizmosSelected()
     {
