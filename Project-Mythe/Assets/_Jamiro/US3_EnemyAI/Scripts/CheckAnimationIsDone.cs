@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckAnimationIsDone : MonoBehaviour
 {
     [SerializeField] private Animator anim;
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private BirdHandler birdHandler;
     [SerializeField] private Transform player;
     [SerializeField] private GameObject playerToTurnOff;
     [SerializeField] private GameObject CameraToTurnOn;
@@ -27,7 +27,7 @@ public class CheckAnimationIsDone : MonoBehaviour
         else if (!done)
         { 
             done = true;
-            Destroy(enemy);
+            Destroy(birdHandler.GetActiveBird());
             CameraToTurnOn.SetActive(true);
             playerToTurnOff.SetActive(false);
         }
