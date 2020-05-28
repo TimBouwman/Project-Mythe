@@ -12,8 +12,10 @@ public class CheckWhereEnemyIs : MonoBehaviour
     private Vector3 targetDir = new Vector3();
     private bool enemySeen = false;
 
-    void Update() { if(!enemySeen) CheckIfEnemyIsInAngle(); }
-
+    void Update()
+    {
+        if(!enemySeen) CheckIfEnemyIsInAngle();
+    }
     private void CheckIfEnemyIsInAngle()
     {
         targetDir = enemyHead.position - transform.position;
@@ -23,7 +25,6 @@ public class CheckWhereEnemyIs : MonoBehaviour
             CheckIfYouLookAtEnemeyHead();
         }  
     }
-
     private void CheckIfYouLookAtEnemeyHead()
     {
         Debug.DrawRay(transform.position, enemyHead.position);

@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class PlayerDeath : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent EnemyAgent;
+    [SerializeField] private NavMeshAgent EnemyAgent = null;
     [SerializeField] private GameObject deathBox = null;
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject enemy = null;
     [SerializeField] private float minimalDistance;
     private bool playerIsTargeted;
 

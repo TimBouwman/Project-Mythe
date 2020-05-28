@@ -6,9 +6,9 @@ public class CheckAnimationIsDone : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject enemy;
-    [SerializeField] private GameObject enemyOnHead;
     [SerializeField] private Transform player;
-    [SerializeField] private Transform deathPosition;
+    [SerializeField] private GameObject playerToTurnOff;
+    [SerializeField] private GameObject CameraToTurnOn;
     private bool done = false;
     private float timeleft;
     // Start is called before the first frame update
@@ -28,8 +28,8 @@ public class CheckAnimationIsDone : MonoBehaviour
         { 
             done = true;
             Destroy(enemy);
-            enemyOnHead.SetActive(true);
-            player.transform.position = deathPosition.position;
+            CameraToTurnOn.SetActive(true);
+            playerToTurnOff.SetActive(false);
         }
     }
 }
