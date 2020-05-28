@@ -45,15 +45,13 @@ public class Match : Item
     private void MatchHeadHandler()
     {
         colliders = Physics.OverlapSphere(matchHead.position, matchHeadColliderRaduis, layer);
-        Debug.Log("1");
         if (colliders.Length > 0)
         {
-            Debug.Log("2");
             MatchHeadIndexRelativeMovement(colliders[0].transform);
             if (Mathf.Abs(oldPos - matchHeadIndex.localPosition.x) > minSpeed && !used)
             {
-                Debug.Log("3");
                 anim.Play("Burning", -1);
+                Destroy(matchHeadIndex.gameObject);
                 used = true;
             }
             oldPos = matchHeadIndex.localPosition.x;

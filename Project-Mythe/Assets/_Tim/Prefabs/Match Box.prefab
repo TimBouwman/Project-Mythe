@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  position: {x: -0.0574, y: 0, z: 0.0632}
-  rotation: {x: 0.000000029802312, y: 0.70359945, z: -0.00000011920925, w: 0.7105968}
-  handPose: {fileID: 0}
+  position: {x: -0.058, y: -0.0033, z: 0.0527}
+  rotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  handPose: MatchBox
   beingheld: 0
   hand: {fileID: 0}
 --- !u!1 &635190749879486399

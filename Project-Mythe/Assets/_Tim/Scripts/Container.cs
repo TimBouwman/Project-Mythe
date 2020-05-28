@@ -54,6 +54,10 @@ public class Container : MonoBehaviour
     {
         if ((parentItem == null || parentItem.beingheld) && !empty)
             HandDetector();
+
+        if (parentItem != null && parentItem.beingheld)
+            parentItem.gameObject.layer = 0;
+        else parentItem.gameObject.layer = itemLayer.ToLayer();
     }
     private void OnDrawGizmos()
     {
@@ -88,10 +92,6 @@ public class Container : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, raduis, handLayer);
         if (colliders.Length > 0)
         {
-            if (parentItem != null && parentItem.beingheld)
-                parentItem.gameObject.layer = 0;
-            else parentItem.gameObject.layer = itemLayer.ToLayer();
-
             //set hand object if hand equals null
             if (hand == null)
                 hand = colliders[0].GetComponent<VRHandController>();
