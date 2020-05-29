@@ -156,7 +156,6 @@ public class VRHandController : MonoBehaviour
                 this.gameObject.layer = 0;
 
                 //play anim
-                anim.SetBool("Idle", false);
                 if (heldItem.HandPose != "")
                     anim.Play(heldItem.HandPose, -1);
             }
@@ -172,7 +171,7 @@ public class VRHandController : MonoBehaviour
             heldItem.hand = null;
 
             //play anim
-            anim.SetBool("Idle", true);
+            anim.Play("Idle", -1);
 
             //apply velocity from to simulator to the held item
             heldItem.Rigidbody.velocity = simulator.velocity * throwForceMultiplier;

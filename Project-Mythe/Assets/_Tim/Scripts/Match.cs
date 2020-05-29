@@ -15,6 +15,7 @@ public class Match : Item
     [SerializeField] private LayerMask layer;
     [SerializeField] private float minSpeed;
     private Animator anim;
+    private AudioSource audioS;
     private bool used = false;
     private Transform matchHeadIndex;
     [SerializeField] private Collider[] colliders; 
@@ -25,13 +26,15 @@ public class Match : Item
     {
         matchHead = this.transform.GetChild(0);
         anim = this.GetComponent<Animator>();
+        audioS = this.GetComponent<AudioSource>();
         matchHeadIndex = new GameObject("Match Head Index").transform;
         matchHeadIndex.parent = this.transform;
     }
 
     private void Update()
     {
-        MatchHeadHandler();
+        if (!used && base.beingheld)
+            MatchHeadHandler();
     }
 
     private void OnDrawGizmos()
@@ -48,9 +51,11 @@ public class Match : Item
         if (colliders.Length > 0)
         {
             MatchHeadIndexRelativeMovement(colliders[0].transform);
-            if (Mathf.Abs(oldPos - matchHeadIndex.localPosition.x) > minSpeed && !used)
+            if (Mathf.Abs(oldPos - matchHeadIndex.localPosition.x) > minSpeed)
             {
                 anim.Play("Burning", -1);
+                audioS.Play(0);
+                //AIMoveToSound.playSound(transform.position);
                 Destroy(matchHeadIndex.gameObject);
                 used = true;
             }

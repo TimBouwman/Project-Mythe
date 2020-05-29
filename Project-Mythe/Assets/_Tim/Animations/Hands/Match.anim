@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MatchBox
+  m_Name: Match
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,7 +19,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 23.966002, y: 1.7850001, z: -2.0040002}
+        value: {x: 42.314003, y: -36.182003, z: -44.848003}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -35,7 +35,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -174.075, y: -4.20697, z: 46.787994}
+        value: {x: -187.192, y: -16.485992, z: 46.651}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -195,7 +195,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -37.161003, y: -80.448006, z: 31.773}
+        value: {x: -26.114, y: -41.172, z: -1.5630001}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -222,6 +222,22 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: Model/pasted__WIJS
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -41.711002, y: -83.796005, z: 46.7}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Model/pasted__WIJS/pasted__wijs1/pasted__wijs2
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -393,6 +409,13 @@ AnimationClip:
       typeID: 4
       customType: 4
       isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 706783750
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -420,7 +443,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 23.966002
+        value: 42.314003
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -439,7 +462,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.7850001
+        value: -36.182003
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -458,7 +481,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -2.0040002
+        value: -44.848003
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -477,7 +500,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -174.075
+        value: -187.192
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -496,7 +519,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -4.20697
+        value: -16.485992
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -515,7 +538,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 46.787994
+        value: 46.651
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1218,7 +1241,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -37.161003
+        value: -26.114
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1237,7 +1260,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -80.448006
+        value: -41.172
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1256,7 +1279,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 31.773
+        value: -1.5630001
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1325,6 +1348,63 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
     path: Model/pasted__WIJS
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -41.711002
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Model/pasted__WIJS/pasted__wijs1/pasted__wijs2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -83.796005
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Model/pasted__WIJS/pasted__wijs1/pasted__wijs2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 46.7
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Model/pasted__WIJS/pasted__wijs1/pasted__wijs2
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -1515,7 +1595,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Model/pasted__DUIM
+    path: Model/pasted__WIJS/pasted__wijs1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1525,7 +1605,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Model/pasted__DUIM
+    path: Model/pasted__WIJS/pasted__wijs1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1535,7 +1615,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Model/pasted__DUIM
+    path: Model/pasted__WIJS/pasted__wijs1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1545,7 +1625,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Model/pasted__DUIM/pasted__duim_1
+    path: Model/pasted__DUIM
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1555,7 +1635,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Model/pasted__DUIM/pasted__duim_1
+    path: Model/pasted__DUIM
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1565,7 +1645,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Model/pasted__DUIM/pasted__duim_1
+    path: Model/pasted__DUIM
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1694,8 +1774,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Model/pasted__WIJS/pasted__wijs1
+    attribute: m_LocalEulerAngles.z
+    path: Model/pasted__WIJS/pasted__wijs1/pasted__wijs2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1705,7 +1785,37 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Model/pasted__WIJS/pasted__wijs1
+    path: Model/pasted__WIJS/pasted__wijs1/pasted__wijs2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Model/pasted__WIJS/pasted__wijs1/pasted__wijs2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Model/pasted__DUIM/pasted__duim_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Model/pasted__DUIM/pasted__duim_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1715,7 +1825,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Model/pasted__WIJS/pasted__wijs1
+    path: Model/pasted__DUIM/pasted__duim_1
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
