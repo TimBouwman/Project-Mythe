@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3683e31c5229c847bc8c192bdc4f112, type: 3}
---- !u!21 &885462277
+--- !u!21 &1413001317
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!43 &1388759128
+--- !u!43 &1640728938
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,7 +394,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803526376}
-  m_Mesh: {fileID: 1388759128}
+  m_Mesh: {fileID: 1640728938}
 --- !u!23 &1801341518
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -413,7 +413,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 885462277}
+  - {fileID: 1413001317}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -760,7 +760,7 @@ PrefabInstance:
     - target: {fileID: 4769313610960362024, guid: cd7a0b0b1b81dd345a836f2dac76f62b,
         type: 3}
       propertyPath: targetheight
-      value: 1
+      value: 1.77
       objectReference: {fileID: 0}
     - target: {fileID: 4769313610960362025, guid: cd7a0b0b1b81dd345a836f2dac76f62b,
         type: 3}

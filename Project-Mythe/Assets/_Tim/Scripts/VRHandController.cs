@@ -39,13 +39,14 @@ public class VRHandController : MonoBehaviour
     private bool isHolding = false;
     private FixedJoint joint;
     private Rigidbody simulator;
+    private Animator anim;
     #endregion
 
     #region Unity Methods
     private void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-
+        anim = this.GetComponent<Animator>();
         simulator = new GameObject().AddComponent<Rigidbody>();
         simulator.transform.name = "Simulator";
         simulator.transform.parent = this.transform.parent;
@@ -53,11 +54,14 @@ public class VRHandController : MonoBehaviour
     private void Update()
     {
         GrabHandler();
+        HandAnim();
     }
     private void LateUpdate()
     {
         UpdateHandPos();
         UpdateHandRot();
+
+        
     }
     private void OnDrawGizmosSelected()
     {
@@ -150,6 +154,10 @@ public class VRHandController : MonoBehaviour
                 heldItem.hand = this.gameObject;
                 isHolding = true;
                 this.gameObject.layer = 0;
+
+                //play anim
+                if (heldItem.HandPose != "")
+                    anim.Play(heldItem.HandPose, -1);
             }
         }
         if (grabAction.GetStateUp(grabSource) && isHolding)
@@ -161,9 +169,17 @@ public class VRHandController : MonoBehaviour
             this.gameObject.layer = handLayer.ToLayer();
             heldItem.beingheld = false;
             heldItem.hand = null;
+
+            //play anim
+            anim.Play("Idle", -1);
+
             //apply velocity from to simulator to the held item
             heldItem.Rigidbody.velocity = simulator.velocity * throwForceMultiplier;
         }
+    }
+    private void HandAnim()
+    {
+
     }
 
     public Vector3 GetItemPos(Item item)
