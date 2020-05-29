@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 5a6e00ff239fb8f44b25ae5b32b8cf56
+<<<<<<< HEAD:Project-Mythe/Assets/_Jamiro/Scene.meta
+guid: f7ae47e3176b43344813923013f64965
+=======
+guid: 41e96c791f082e4448cae9434149ecf8
+>>>>>>> US2-ItemInteraction:Project-Mythe/Assets/SteamVR_Resources/Resources.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

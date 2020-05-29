@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Project-Mythe/Assets/SteamVR/Input/Editor.meta
+guid: fed05885250fc2c4daab18c7df3717bf
+=======
+guid: d0a3d8dd1c240ff4a8e1821e5c8bb5bd
+>>>>>>> Art:Project-Mythe/Assets/_Saskia/Models.meta
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+=======
+guid: fed05885250fc2c4daab18c7df3717bf
+folderAsset: yes
+timeCreated: 1521243387
+licenseType: Store
+DefaultImporter:
+>>>>>>> US2-ItemInteraction
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
