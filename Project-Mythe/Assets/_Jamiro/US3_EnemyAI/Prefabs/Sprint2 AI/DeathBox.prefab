@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4471194461872531154}
-  enemy: {fileID: 0}
+  birdHandler: {fileID: 0}
   player: {fileID: 0}
   playerToTurnOff: {fileID: 0}
   CameraToTurnOn: {fileID: 0}

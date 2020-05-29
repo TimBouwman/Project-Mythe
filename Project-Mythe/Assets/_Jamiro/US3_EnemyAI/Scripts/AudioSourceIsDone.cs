@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class AudioSourceIsDone : MonoBehaviour
 {
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
     private float audioLength;
     [SerializeField] private GameObject deathCanvas;
 
     private void Awake()
-    {
-        audioSource = gameObject.GetComponent<AudioSource>();
+    { 
         audioLength = audioSource.clip.length;
     }
     // Update is called once per frame

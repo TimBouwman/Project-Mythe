@@ -8,8 +8,9 @@ public class TriggerEvent : MonoBehaviour
     private bool nextEvent = false;
     private void OnTriggerEnter(Collider other)
     {
-       if(!nextEvent)
+       if(!nextEvent && other.tag == "Player")
         {
+            print(other.tag);
             birdHandler.changeBird();
             nextEvent = true;
         }
