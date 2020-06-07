@@ -15,8 +15,8 @@ public class Item : MonoBehaviour
     public Vector3 Position { get { return this.position; } }
     [SerializeField, HideInInspector] private Quaternion rotation;
     public Quaternion Rotation { get { return this.rotation; } }
-    [SerializeField, HideInInspector] private AnimationClip handPose;
-    public AnimationClip HandPose { get { return this.handPose; } }
+    [SerializeField, HideInInspector] private string handPose;
+    public string HandPose { get { return this.handPose; } }
     private Rigidbody rb;
     public Rigidbody Rigidbody { get { return this.rb; } }
     [HideInInspector] public bool beingheld;

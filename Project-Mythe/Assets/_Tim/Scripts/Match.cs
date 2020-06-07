@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 
 /// </summary>
+[RequireComponent(typeof(Animator))]
 public class Match : Item
 {
     #region Variables
@@ -14,9 +15,10 @@ public class Match : Item
     [SerializeField] private LayerMask layer;
     [SerializeField] private float minSpeed;
     private Animator anim;
+    private AudioSource audioS;
     private bool used = false;
     private Transform matchHeadIndex;
-    private int frams;
+    [SerializeField] private Collider[] colliders; 
     #endregion
 
     #region Unity Methods
@@ -24,12 +26,15 @@ public class Match : Item
     {
         matchHead = this.transform.GetChild(0);
         anim = this.GetComponent<Animator>();
+        audioS = this.GetComponent<AudioSource>();
         matchHeadIndex = new GameObject("Match Head Index").transform;
+        matchHeadIndex.parent = this.transform;
     }
 
     private void Update()
     {
-        MatchHeadHandler();
+        if (!used && base.beingheld)
+            MatchHeadHandler();
     }
 
     private void OnDrawGizmos()
@@ -42,23 +47,20 @@ public class Match : Item
 
     private void MatchHeadHandler()
     {
-        Collider[] colliders = Physics.OverlapSphere(matchHead.position, matchHeadColliderRaduis, layer);
-
+        colliders = Physics.OverlapSphere(matchHead.position, matchHeadColliderRaduis, layer);
         if (colliders.Length > 0)
         {
             MatchHeadIndexRelativeMovement(colliders[0].transform);
-            if (Mathf.Abs(oldPos - matchHeadIndex.position.x) > minSpeed && !used)
+            if (Mathf.Abs(oldPos - matchHeadIndex.localPosition.x) > minSpeed)
             {
-                frams++;
-                //if(frams > 5)
-                {
-                    anim.Play("MatchLight", -1);
-                    used = true;
-                }   
+                anim.Play("Burning", -1);
+                audioS.Play(0);
+                //AIMoveToSound.playSound(transform.position);
+                Destroy(matchHeadIndex.gameObject);
+                used = true;
             }
-            oldPos = matchHeadIndex.position.x;
+            oldPos = matchHeadIndex.localPosition.x;
         }
-        else if (frams != 0) frams = 0;
     }
 
     private void MatchHeadIndexRelativeMovement(Transform parent)

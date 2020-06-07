@@ -7,6 +7,7 @@ using UnityEditor;
 /// 
 /// </summary>
 [CustomEditor(typeof(Item), true)]
+[CanEditMultipleObjects]
 public class ItemEditor : Editor
 {
     private SerializedProperty id;
@@ -51,6 +52,7 @@ public class ItemEditor : Editor
 
         EditorGUILayout.PropertyField(handPose, new GUIContent("HandPose"), GUILayout.Height(20));
 
+        serializedObject.ApplyModifiedProperties();
         EditorGUILayout.Space(10f);
         base.OnInspectorGUI();
     }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 4cc42171944163843b3d0825ff1464c6
+=======
 guid: 2def70d956d6a104296f7b7f2d0106e7
+>>>>>>> US3-EnemyAI
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

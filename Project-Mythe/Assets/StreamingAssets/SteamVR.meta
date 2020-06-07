@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 2abecaaeeb42365479afdde65d067b06
+=======
 <<<<<<< HEAD:Project-Mythe/Assets/StreamingAssets/SteamVR.meta
 guid: 2abecaaeeb42365479afdde65d067b06
 =======
 guid: 5f780965b9bdbba42a58d580b462f699
 >>>>>>> origin/Art:Project-Mythe/Assets/ExampleAssets/_Mariska.meta
+>>>>>>> US3-EnemyAI
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

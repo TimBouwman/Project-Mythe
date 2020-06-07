@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD:Project-Mythe/Assets/StreamingAssets.meta
+<<<<<<< HEAD
+guid: 60c6a315c67b7cb44be21741cef6514e
+=======
+guid: 7d7987467c71a604ead32cb320f3f028
+>>>>>>> Art:Project-Mythe/Assets/_Mariska/Materials/lucifer doosje.meta
+=======
 guid: 869432617b7162848b271bde142dd6bd
 =======
 guid: 7d7987467c71a604ead32cb320f3f028
 >>>>>>> origin/Art:Project-Mythe/Assets/_Mariska/Materials/lucifer doosje.meta
+>>>>>>> US3-EnemyAI
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
