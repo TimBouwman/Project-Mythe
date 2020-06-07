@@ -6,7 +6,6 @@ public class CheckAnimationIsDone : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     [SerializeField] private BirdHandler birdHandler;
-    [SerializeField] private Transform player;
     [SerializeField] private GameObject playerToTurnOff;
     [SerializeField] private GameObject CameraToTurnOn;
     private bool done = false;
