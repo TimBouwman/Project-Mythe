@@ -21,7 +21,7 @@ public class BirdHandler : MonoBehaviour
     }
     void Start()
     {
-        enemyAgents = new NavMeshAgent[enemyNachtKrapps.Length];
+        enemyAgents = new NavMeshAgent[enemyNachtKrapps.Length + 1];
         for(int i = 0; i < enemyNachtKrapps.Length; i++)
         {
             if (enemyNachtKrapps[i].GetComponent<NavMeshAgent>() != null)
