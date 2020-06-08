@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SleepingBird
+  - IgnoreOnCollisioEnter
   layers:
   - Default
   - TransparentFX
