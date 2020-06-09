@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a00f128b746017744b6469c200dbd63d
+guid: 5a7843bc80c673a43bde6b559ba82587
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Flat_Mushroom_1Mat
-    second: {fileID: 2100000, guid: d556d8a821ce6f1408aabd9651fcfab4, type: 2}
+      name: Mushroom_1Mat
+    second: {fileID: 2100000, guid: d7691d0f583d14e4bab1ae5c4d03863e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
