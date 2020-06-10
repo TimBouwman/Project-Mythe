@@ -1,5 +1,6 @@
 ﻿//author: Tim Bouwman
 //Github: https://github.com/TimBouwman
+using System;
 using UnityEngine;
 using Valve.VR;
 
@@ -37,9 +38,9 @@ public class VRHandController : MonoBehaviour
     private Rigidbody rb;
     private Item heldItem;
     private bool isHolding = false;
-    private FixedJoint joint;
     private Rigidbody simulator;
     private Animator anim;
+    public static Action<Collider> releaseItem;
     #endregion
 
     #region Unity Methods
@@ -60,8 +61,6 @@ public class VRHandController : MonoBehaviour
     {
         UpdateHandPos();
         UpdateHandRot();
-
-        
     }
     private void OnDrawGizmosSelected()
     {
@@ -142,33 +141,34 @@ public class VRHandController : MonoBehaviour
             if (colliders.Length > 0)
             {
                 heldItem = colliders[0].gameObject.GetComponent<Item>();
+                if (!heldItem.beingheld)
+                {
+                    //Apply item position and rotation
+                    heldItem.transform.parent = this.transform;
+                    heldItem.transform.localPosition = GetItemPos(heldItem);
+                    heldItem.transform.localRotation = GetItemRot(heldItem);
 
-                //Apply item position and rotation
-                heldItem.transform.parent = this.transform;
-                heldItem.transform.localPosition = GetItemPos(heldItem);
-                heldItem.transform.localRotation = GetItemRot(heldItem);
+                    //connect joint to hand
+                    heldItem.SendMessage("Grab");
+                    heldItem.hand = this.gameObject;
+                    isHolding = true;
+                    this.gameObject.layer = 0;
 
-                //connect joint to hand
-                heldItem.Rigidbody.isKinematic = true;
-                heldItem.beingheld = true;
-                heldItem.hand = this.gameObject;
-                isHolding = true;
-                this.gameObject.layer = 0;
-
-                //play anim
-                if (heldItem.HandPose != "")
-                    anim.Play(heldItem.HandPose, -1);
+                    //play anim
+                    if (heldItem.HandPose != "")
+                        anim.Play(heldItem.HandPose, -1);
+                }
             }
         }
         if (grabAction.GetStateUp(grabSource) && isHolding)
         {
             //release helditem
-            heldItem.transform.parent = null;
-            heldItem.Rigidbody.isKinematic = false;
+            heldItem.SendMessage("Release");
             isHolding = false;
             this.gameObject.layer = handLayer.ToLayer();
-            heldItem.beingheld = false;
-            heldItem.hand = null;
+
+            //send event
+            releaseItem(heldItem.GetComponent<Collider>());
 
             //play anim
             anim.Play("Idle", -1);

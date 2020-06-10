@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba48202585b7da04aa7f71dc90274295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   position: {x: -0.0247, y: -0.0207, z: 0.087}
   rotation: {x: 0.07975057, y: -0.6943018, z: -0.07787758, w: 0.71099925}
   handPose: Match

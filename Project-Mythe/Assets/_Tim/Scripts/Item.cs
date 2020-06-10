@@ -17,7 +17,7 @@ public class Item : MonoBehaviour
     public Quaternion Rotation { get { return this.rotation; } }
     [SerializeField, HideInInspector] private string handPose;
     public string HandPose { get { return this.handPose; } }
-    private Rigidbody rb;
+    protected Rigidbody rb;
     public Rigidbody Rigidbody { get { return this.rb; } }
     [HideInInspector] public bool beingheld;
     [HideInInspector] public GameObject hand;
@@ -26,6 +26,19 @@ public class Item : MonoBehaviour
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
+    }
+
+    virtual protected void Grab()
+    {
+        rb.isKinematic = true;
+        beingheld = true;
+    }
+    virtual protected void Release()
+    {
+        this.transform.parent = null;
+        rb.isKinematic = false;
+        beingheld = false;
+        hand = null;
     }
 
     #region Editor Methods
