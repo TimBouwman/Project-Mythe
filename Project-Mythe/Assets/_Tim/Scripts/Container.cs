@@ -10,10 +10,14 @@ using UnityEngine;
 public class Container : MonoBehaviour
 {
     #region Variables
+    [Tooltip("The id of the item the container can hold if this is empty the container can take every item")]
+    [SerializeField] private string itemIdFilter = "";
+    [Tooltip("If this is use the container will only be active if the parent item is being held")]
     [SerializeField] private Item parentItem;
     [Header("Overlap Sphere")]
     [Tooltip("The center of the overlap Sphere. If this is null the script will use this.transform in its place.")]
     [SerializeField] private Transform centerObject;
+    [Tooltip("The raduis of the overlap sphere")]
     [SerializeField] private float raduis;
     [Tooltip("The layer the hand object is on")]
     [SerializeField] private LayerMask handLayer;
@@ -38,37 +42,39 @@ public class Container : MonoBehaviour
         if (!centerObject)
             centerObject = this.transform;
 
+        if (items.Count == 0)
+            empty = true;
+
         //setting and creating everything for the current item
-        currentItemAmount = itemPositions.Length;
+        currentItemAmount = items.Count;
         currentItemIndex = new GameObject("Item Index").transform;
         currentItemIndex.parent = this.transform;
-        
+
         //disables all the colliders of the items in the container
         foreach (Item item in items)
         {
             item.GetComponent<Collider>().enabled = false;
             item.GetComponent<Rigidbody>().isKinematic = true;
         }
+
+        VRHandController.releaseItem += item => AddItem(item);
     }
-    private void Update()
+    virtual protected void Update()
     {
         if ((parentItem == null || parentItem.beingheld) && !empty)
-            HandDetector();
-
-        if (parentItem != null && parentItem.beingheld)
-            parentItem.gameObject.layer = 0;
-        else parentItem.gameObject.layer = itemLayer.ToLayer();
+            RemoveItem();
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         if (centerObject)
             Gizmos.DrawWireSphere(centerObject.position, raduis);
-        else Gizmos.DrawWireSphere(this.transform.position, raduis);
+        else 
+            Gizmos.DrawWireSphere(this.transform.position, raduis);
     }
     #endregion
 
-    private void HandDetector()
+    private void RemoveItem()
     {
         //set current item if current item equals null
         if (currentItem == null)
@@ -84,6 +90,7 @@ public class Container : MonoBehaviour
             if (!items.Any())
                 empty = true;
             else currentItem = items[currentItemAmount - 1];
+            return;
         }
 
         if (currentItem != null && currentItem.GetComponent<Collider>().enabled != false)
@@ -92,7 +99,6 @@ public class Container : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, raduis, handLayer);
         if (colliders.Length > 0)
         {
-            //set hand object if hand equals null
             if (hand == null)
                 hand = colliders[0].GetComponent<VRHandController>();
 
@@ -110,5 +116,35 @@ public class Container : MonoBehaviour
         }
         else if (currentItem.transform.position != itemPositions[currentItemAmount - 1].position && currentItem.transform.rotation != itemPositions[currentItemAmount - 1].rotation)
             currentItem.transform.Lerp(itemPositions[currentItemAmount - 1], Time.deltaTime * 3);
+    }
+
+    private void AddItem(Collider item)
+    {
+        if (items.Count < itemPositions.Length)
+        {
+            Collider[] colliders = Physics.OverlapSphere(this.transform.position, raduis, itemLayer);
+            if (colliders.Length > 0)
+            {
+                foreach (Collider collider in colliders)
+                {
+                    if (collider == item)
+                    {
+                        Item newItem = item.GetComponent<Item>();
+                        if (itemIdFilter == "" || itemIdFilter == newItem.Id.ToString())
+                        {
+                            currentItemAmount += 1;
+                            items.Add(newItem);
+                            currentItem = newItem;
+                            item.GetComponent<Rigidbody>().isKinematic = true;
+                            item.enabled = false;
+                            item.transform.parent = this.transform;
+                            if (empty)
+                                empty = false;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
