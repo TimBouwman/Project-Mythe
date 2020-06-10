@@ -10,11 +10,14 @@ using UnityEngine;
 public class Container : MonoBehaviour
 {
     #region Variables
+    [Tooltip("The id of the item the container can hold if this is empty the container can take every item")]
     [SerializeField] private string itemIdFilter = "";
+    [Tooltip("If this is use the container will only be active if the parent item is being held")]
     [SerializeField] private Item parentItem;
     [Header("Overlap Sphere")]
     [Tooltip("The center of the overlap Sphere. If this is null the script will use this.transform in its place.")]
     [SerializeField] private Transform centerObject;
+    [Tooltip("The raduis of the overlap sphere")]
     [SerializeField] private float raduis;
     [Tooltip("The layer the hand object is on")]
     [SerializeField] private LayerMask handLayer;
@@ -56,7 +59,7 @@ public class Container : MonoBehaviour
 
         VRHandController.releaseItem += item => AddItem(item);
     }
-    private void Update()
+    virtual protected void Update()
     {
         if ((parentItem == null || parentItem.beingheld) && !empty)
             RemoveItem();
