@@ -13,7 +13,6 @@ public class CheckWhereEnemyIs : MonoBehaviour
     [SerializeField] private Volume volume = null;
     [SerializeField] private BirdHandler birdHandler;
     [SerializeField] private string TagOfSleepingBird = "SleepingBird";
-    [SerializeField] private BirdGoingCrazy birdGoingCrazy;
     private float angle = 0;
     private Vector3 targetDir = new Vector3();
     private bool enemySeen = false;
@@ -29,7 +28,7 @@ public class CheckWhereEnemyIs : MonoBehaviour
     }
     private void CheckIfEnemyIsInAngle(Transform enemyHead)
     {
-        if (enemyHead.tag != TagOfSleepingBird)
+        if (enemyHead.tag != TagOfSleepingBird || enemyHead.tag  == "GoCrazy")
         {
             targetDir = enemyHead.position - transform.position;
             angle = Vector3.Angle(targetDir, transform.forward);
@@ -54,7 +53,7 @@ public class CheckWhereEnemyIs : MonoBehaviour
             enemySeen = true;
             if (birdHandler.GetActiveBird().tag == "GoCrazy")
             {
-                birdGoingCrazy.GoCrazy();
+               // birdGoingCrazy.GoCrazy();
                 enemySeen = false;
             }
             else
