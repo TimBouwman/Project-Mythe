@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8895169370990638464}
   - component: {fileID: 9030044898243312437}
   - component: {fileID: 5478847097043378862}
+  - component: {fileID: 609548234905021687}
   m_Layer: 0
   m_Name: floor_rock_1
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &609548234905021687
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516751354381113693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6534580409108259408, guid: 87e757746ff3f2547bb4a422c1d10c60, type: 3}
 --- !u!1 &7574115068639976622
 GameObject:
   m_ObjectHideFlags: 0
