@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8642424721746528281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.47940063, y: -7.0421143, z: 4.382675}
-  m_LocalScale: {x: 0.013685392, y: 0.0136853885, z: 0.013685391}
+  m_LocalScale: {x: 0.0136854, y: 0.013685395, z: 0.013685399}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -243,9 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb4a10503a06f54da65e11fda22fbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  position: {x: -0.0394, y: -0.0255, z: 0.0218}
-  rotation: {x: 0.4608621, y: 0.53713095, z: 0.46688074, w: 0.5302065}
-  handPose: 
+  id: 69
+  position: {x: -0.0428, y: -0.0214, z: 0.0517}
+  rotation: {x: 0.043570895, y: -0.65414053, z: -0.1525511, w: 0.739547}
+  handPose: Rock
   beingheld: 0
   hand: {fileID: 0}

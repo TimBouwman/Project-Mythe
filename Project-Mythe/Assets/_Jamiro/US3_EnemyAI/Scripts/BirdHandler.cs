@@ -26,6 +26,7 @@ public class BirdHandler : MonoBehaviour
         {
             if (enemyNachtKrapps[i].GetComponent<NavMeshAgent>() != null)
             {
+                print("sferohijk");
                 enemyAgents[i] = enemyNachtKrapps[i].GetComponent<NavMeshAgent>();
             }
         }
@@ -37,6 +38,8 @@ public class BirdHandler : MonoBehaviour
     }
     public NavMeshAgent GetAgent()
     {
+        print(enemyAgents.Length);
+        print(index);
         return enemyAgents[index];
     }
     public Transform ActiveHead()

@@ -29,7 +29,6 @@ public class BirdAnimationHandler : MonoBehaviour
             if (timeleft > 0)
             {
                 timeleft -= Time.deltaTime;
-                print(timeleft);
             }
             else
             {

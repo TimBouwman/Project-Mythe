@@ -9,11 +9,10 @@ public class TriggerEvent : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
        if(!nextEvent && other.tag == "Player")
-        {
-            print(other.tag);
+       {
             birdHandler.changeBird();
             nextEvent = true;
-        }
+       }
     }
 
 }
