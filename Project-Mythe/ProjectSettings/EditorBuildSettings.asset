@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Build Scenes/Main.unity
-    guid: 3084373043183c94e9ecd3c89ad89057
+    path: Assets/_Jamiro/Scene/MainMenu.unity
+    guid: c88125fdd8bf03d45b331766bd974017
+  - enabled: 1
+    path: Assets/_Build Scenes/Sprint 2.unity
+    guid: ff4c54d769b4e65418337f320b194273
   m_configObjects: {}

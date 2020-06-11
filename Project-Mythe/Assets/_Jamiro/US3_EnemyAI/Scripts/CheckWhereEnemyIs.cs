@@ -13,6 +13,7 @@ public class CheckWhereEnemyIs : MonoBehaviour
     [SerializeField] private Volume volume = null;
     [SerializeField] private BirdHandler birdHandler;
     [SerializeField] private string TagOfSleepingBird = "SleepingBird";
+    [SerializeField] private BirdGoingCrazy birdGoingCrazy;
     private float angle = 0;
     private Vector3 targetDir = new Vector3();
     private bool enemySeen = false;
@@ -51,7 +52,15 @@ public class CheckWhereEnemyIs : MonoBehaviour
         if (!Physics.Linecast(transform.position, enemyHead.position))
         {
             enemySeen = true;
-            playerIsDeath.SetDestenationToKill();
+            if (birdHandler.GetActiveBird().tag == "GoCrazy")
+            {
+                birdGoingCrazy.GoCrazy();
+                enemySeen = false;
+            }
+            else
+            {
+                playerIsDeath.SetDestenationToKill();
+            }
         }
     }
     private void PostProccesCamera(Transform enemyHead)

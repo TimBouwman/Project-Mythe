@@ -18,7 +18,7 @@ public class Match : Item
     private AudioSource audioS;
     private bool used = false;
     private Transform matchHeadIndex;
-    [SerializeField] private Collider[] colliders; 
+    [SerializeField] private Collider[] colliders;
     #endregion
 
     #region Unity Methods
@@ -55,7 +55,6 @@ public class Match : Item
             {
                 anim.Play("Burning", -1);
                 audioS.Play(0);
-                //AIMoveToSound.playSound(transform.position);
                 Destroy(matchHeadIndex.gameObject);
                 used = true;
             }

@@ -8,8 +8,6 @@ public class BirdGoingCrazy : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent = null;
     [SerializeField] private Transform[] positionsToGo = null;
-    [SerializeField] private GameObject player = null;
-    [SerializeField] private PlayerDeath playerDeath;
     private int index;
     private bool crazyModes = false;
 
@@ -30,8 +28,11 @@ public class BirdGoingCrazy : MonoBehaviour
 
     public void GoCrazy()
     {
-        NextPosition();
-        crazyModes = true;
+        if (crazyModes == false)
+        {
+            NextPosition();
+            crazyModes = true;
+        }
         
 
     }
@@ -43,13 +44,10 @@ public class BirdGoingCrazy : MonoBehaviour
             agent.destination = positionsToGo[index].position;
             index++;
         }
-
-
         else
         {
             crazyModes = false;
-            agent.destination = player.transform.position;
-            playerDeath.SetPlayerIsTargeted(true);
+            index = 0;
         }
 
     }
