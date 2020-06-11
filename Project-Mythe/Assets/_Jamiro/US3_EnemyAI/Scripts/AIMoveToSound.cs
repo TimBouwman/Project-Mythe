@@ -26,8 +26,9 @@ public class AIMoveToSound : MonoBehaviour
             }
         }    
     }
-    void Start()
+    void Awake()
     {
+        playSound = null;
         playSound += GoToThisPosition;
     }
 
