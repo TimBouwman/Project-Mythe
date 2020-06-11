@@ -57,6 +57,7 @@ public class Container : MonoBehaviour
             item.GetComponent<Rigidbody>().isKinematic = true;
         }
 
+        VRHandController.releaseItem = null;
         VRHandController.releaseItem += item => AddItem(item);
     }
     virtual protected void Update()

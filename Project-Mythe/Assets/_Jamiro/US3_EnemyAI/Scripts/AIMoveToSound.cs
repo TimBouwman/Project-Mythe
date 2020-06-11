@@ -12,7 +12,7 @@ public class AIMoveToSound : MonoBehaviour
     public static Action<Vector3> playSound;
     [SerializeField] NavMeshAgent agent = null;
     [SerializeField] private BirdAnimationHandler animHandler;
-    private bool walk = true;
+    private bool walk = false;
     void Update()
     {
         if(walk)
@@ -22,6 +22,7 @@ public class AIMoveToSound : MonoBehaviour
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
                     animHandler.SetWalkAnimation(false);
+                    walk = false;
                 }
             }
         }    
@@ -30,12 +31,14 @@ public class AIMoveToSound : MonoBehaviour
     {
         playSound = null;
         playSound += GoToThisPosition;
+        agent = this.GetComponent<NavMeshAgent>();
     }
 
     public void GoToThisPosition(Vector3 positionToGo)
     {
         agent.destination = positionToGo;
         animHandler.SetWalkAnimation(true);
+        walk = true;
     }
     
 }
