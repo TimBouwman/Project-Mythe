@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Project-Mythe/Assets/_Margo/textures/body.meta
 guid: 90e2e2baa8ddb8f4cb9aebb4732fb6ad
+=======
+guid: 9c838494e5c0b324b826febffa9572a9
+>>>>>>> origin/Main-Menu:Project-Mythe/Assets/Samples/Terrain Tools/0.1.0-preview/Terrain Assets.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

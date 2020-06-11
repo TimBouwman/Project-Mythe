@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:Project-Mythe/Assets/Samples/Terrain Tools/0.1.0-preview/Terrain Assets.meta
 guid: 9c838494e5c0b324b826febffa9572a9
 =======
 guid: 3d32951114fe2d24db276629377b3f87
 >>>>>>> Art:Project-Mythe/Assets/_Margo/prefab.meta
+=======
+<<<<<<< HEAD:Project-Mythe/Assets/_Margo/textures/body.meta
+guid: 90e2e2baa8ddb8f4cb9aebb4732fb6ad
+=======
+guid: 9c838494e5c0b324b826febffa9572a9
+>>>>>>> origin/Main-Menu:Project-Mythe/Assets/Samples/Terrain Tools/0.1.0-preview/Terrain Assets.meta
+>>>>>>> origin/Main-Menu
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

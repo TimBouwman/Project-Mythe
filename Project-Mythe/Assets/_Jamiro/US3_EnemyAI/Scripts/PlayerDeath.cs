@@ -30,7 +30,8 @@ public class PlayerDeath : MonoBehaviour
     public void SetDestenationToKill()
     {
         playerIsTargeted = true;
-        birdHandler.GetAgent().destination = transform.position;
+        birdHandler.GetActiveBird().GetComponent<BirdAnimationHandler>().SetAttackAnimation();
+        birdHandler.GetActiveBird().GetComponent<BirdAnimationHandler>().SetWalkAnimation(false);
     }
 
 }
