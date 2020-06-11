@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4363413902913897822}
   - component: {fileID: 4363413902913897809}
   - component: {fileID: 5439779547999569907}
-  - component: {fileID: 2365615854344577926}
+  - component: {fileID: 4276025613534785346}
   m_Layer: 11
   m_Name: Rock
   m_TagString: Untagged
@@ -235,8 +235,8 @@ MonoBehaviour:
   handPose: Rock
   beingheld: 0
   hand: {fileID: 0}
---- !u!64 &2365615854344577926
-MeshCollider:
+--- !u!65 &4276025613534785346
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -245,7 +245,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1662260010397993113, guid: a0a11f6d98db9284689dd2d85eff9d46, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 5.121753, y: 6.2751536, z: 3.4575891}
+  m_Center: {x: 0.17977643, y: 1.0626994, z: 0.28664002}
