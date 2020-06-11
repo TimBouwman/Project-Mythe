@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 2439962190944830248}
   - component: {fileID: 2439962190944830251}
   - component: {fileID: 2439962190944830250}
+  - component: {fileID: 1686134095}
   m_Layer: 12
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -184,7 +185,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2439962190944830249}
-  m_LocalRotation: {x: -0, y: 0.17330194, z: -0, w: 0.98486876}
+  m_LocalRotation: {x: 0, y: 0.17330441, z: 0, w: 0.98486835}
   m_LocalPosition: {x: 122.72, y: -1.09, z: 130.32}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
@@ -236,8 +237,24 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.869198, y: 0.8100563, z: 4.189526}
-  m_Center: {x: -0.01364961, y: 3.7347438, z: 0.3541906}
+  m_Size: {x: 6.276865, y: 2.043645, z: 6.105652}
+  m_Center: {x: -0.3014803, y: 4.351538, z: 0.4504776}
+--- !u!54 &1686134095
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2439962190944830249}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2439962191211179298
 GameObject:
   m_ObjectHideFlags: 0
