@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 3778712473707105112}
   - component: {fileID: 3778712473707105114}
   - component: {fileID: 3778712473707105115}
-  m_Layer: 0
+  - component: {fileID: 6784304884193489605}
+  - component: {fileID: 6784304883761944336}
+  m_Layer: 15
   m_Name: IdleBird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3778712473707105113}
-  m_LocalRotation: {x: -0, y: 0.022294281, z: -0, w: 0.9997515}
+  m_LocalRotation: {x: 0, y: 0.022294708, z: 0, w: 0.99975145}
   m_LocalPosition: {x: -45.87, y: -9.39602, z: -1.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -62,7 +64,7 @@ NavMeshAgent:
   m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 600
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -70,6 +72,34 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &6784304884193489605
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778712473707105113}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 4.272835
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5028896, z: 0}
+--- !u!114 &6784304883761944336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778712473707105113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dee5ac2db11dc438d720bc234ed680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 3778712473707105115}
+  animHandler: {fileID: 3778712473707105114}
 --- !u!1 &3778712473830402635
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +113,7 @@ GameObject:
   - component: {fileID: 3778712473830402629}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: SleepingBird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,7 +644,7 @@ PrefabInstance:
     - target: {fileID: 8191404089130364549, guid: 737e5e976eb8bde4ea9c894e7b0ff014,
         type: 3}
       propertyPath: m_Name
-      value: IdleBird
+      value: BirdReactsToSound
       objectReference: {fileID: 0}
     - target: {fileID: 8323887732820556241, guid: 737e5e976eb8bde4ea9c894e7b0ff014,
         type: 3}
