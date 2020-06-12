@@ -17,6 +17,7 @@ GamePlay Video: [video](https://www.youtube.com/watch?v=bsNOG7DFb_E&feature=yout
 Note: in de video zitten wat bugs... dit is niet de build maar mijn setup die vervelend doet! ik heb een te kleine kamer voor VR.
 
 Note2: het licht is wat donker op de recording hou rekening mee dat dit niet het geval is in vr.
+
 ---
 #### Producten Werkproces 1
 | Product  | Link |
