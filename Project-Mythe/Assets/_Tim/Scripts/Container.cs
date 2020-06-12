@@ -2,7 +2,6 @@
 //Github: https://github.com/TimBouwman
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -33,11 +32,10 @@ public class Container : MonoBehaviour
     private Transform currentItemIndex;
     private VRHandController hand;
     private bool empty = false;
-    public static Action<Collider> releaseItem;
     #endregion
 
     #region Unity Methods
-    private void Start()
+    private void OnEnable()
     {
         //sets the center for the overlapsphere to this object
         //if it is not set in the inspector
@@ -59,8 +57,7 @@ public class Container : MonoBehaviour
             item.GetComponent<Rigidbody>().isKinematic = true;
         }
 
-        releaseItem = null;
-        releaseItem += item => AddItem(item);
+        VRHandController.releaseItem += item => AddItem(item);
     }
     virtual protected void Update()
     {

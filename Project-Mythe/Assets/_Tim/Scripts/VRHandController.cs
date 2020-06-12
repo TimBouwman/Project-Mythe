@@ -40,6 +40,7 @@ public class VRHandController : MonoBehaviour
     private bool isHolding = false;
     private Rigidbody simulator;
     private Animator anim;
+    public static Action<Collider> releaseItem;
     #endregion
 
     #region Unity Methods
@@ -167,7 +168,7 @@ public class VRHandController : MonoBehaviour
             this.gameObject.layer = handLayer.ToLayer();
 
             //send event
-            Container.releaseItem(heldItem.GetComponent<Collider>());
+            releaseItem(heldItem.GetComponent<Collider>());
 
             //play anim
             anim.Play("Idle", -1);

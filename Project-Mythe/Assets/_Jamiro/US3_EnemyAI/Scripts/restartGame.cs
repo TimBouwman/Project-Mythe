@@ -8,6 +8,7 @@ public class restartGame : MonoBehaviour
     {
         if (calibrate.GetState(SteamVR_Input_Sources.LeftHand) && calibrate.GetStateDown(SteamVR_Input_Sources.RightHand))
         {
+            VRHandController.releaseItem = null;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
