@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 919900535069097421}
   - component: {fileID: 3304339753554697772}
   - component: {fileID: 8073096171774918540}
+  - component: {fileID: 8477251873646369393}
   m_Layer: 0
   m_Name: Elfenbankje
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8477251873646369393
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832345648920762066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3853828618537169649, guid: c52faf12bc7491946a01d868b6d730b7, type: 3}
 --- !u!1 &7692632074588664441
 GameObject:
   m_ObjectHideFlags: 0

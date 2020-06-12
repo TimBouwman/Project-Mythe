@@ -30,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4363413902913897811}
-  m_LocalRotation: {x: -0.26438615, y: -0.9630029, z: -0.037489716, w: 0.036331113}
+  m_LocalRotation: {x: -0.2643895, y: -0.963002, z: -0.037488203, w: 0.03633349}
   m_LocalPosition: {x: 250.183, y: 12.018, z: 301.876}
-  m_LocalScale: {x: 0.0136854, y: 0.013685395, z: 0.013685399}
+  m_LocalScale: {x: 0.013685407, y: 0.013685396, z: 0.013685406}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.42900002, y: -84.03001, z: -26.451002}
+  m_LocalEulerAnglesHint: {x: -5.2450004, y: -177.113, z: 30.572}
 --- !u!33 &4363413902913897821
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 69
-  position: {x: -0.0428, y: -0.0214, z: 0.0517}
-  rotation: {x: 0.043570895, y: -0.65414053, z: -0.1525511, w: 0.739547}
+  position: {x: -0.0107, y: -0.0362, z: 0.0386}
+  rotation: {x: -0.1747063, y: 0.6318832, z: 0.2986819, w: -0.6935348}
   handPose: Rock
   beingheld: 0
   hand: {fileID: 0}

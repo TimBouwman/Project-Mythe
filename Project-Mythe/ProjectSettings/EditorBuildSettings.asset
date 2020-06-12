@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Tim/Scenes/CalibrationScene.unity
+    guid: 8af9906ffda451f40813dbca109f0fe9
+  - enabled: 1
     path: Assets/_Jamiro/Scene/MainMenu.unity
     guid: c88125fdd8bf03d45b331766bd974017
   - enabled: 1
