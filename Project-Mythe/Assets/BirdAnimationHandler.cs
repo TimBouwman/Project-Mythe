@@ -11,7 +11,7 @@ public class BirdAnimationHandler : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     private string animKillBool = "killwalk";
     private string walkAnimBool = "normalwalk";
-    private float timeleft = 1.9f;
+    private float timeleft = 1f;
     private bool timer = false;
     void Start()
     {
@@ -19,8 +19,6 @@ public class BirdAnimationHandler : MonoBehaviour
         {
             thisAnimtor = GetComponent<Animator>();
         }
-
-
     }
     void Update()
     {
