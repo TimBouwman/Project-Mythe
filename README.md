@@ -5,7 +5,10 @@ Platform:
 VR
 
 ### Korte omschrijving van de game
-...
+het is een vr puzzel thriller game.
+met de mythe van de nacht krapp.
+het verhaal is dat je in zijn hol wakker word en je moet ontsnappen van de nachtkrapp.
+door verschillende puzzels op te lossen en items te verzamelen en de boze vogel te ontlopen
 
 ---
 #### Producten Werkproces 1
@@ -37,7 +40,7 @@ VR
 |<img width=500/>|<img width=300/>|
 
    [Backlog]: <https://trello.com/b/CvDCCYtS/mythe>
-   [Logboek]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/logboek.pdf>
+   [Logboek]: <https://github.com/TimBouwman/Project-Mythe/blob/master/producten/LOGBOEK%20MYTHE.pdf>
    [GameDesignDoc]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/GameDesignDoc.pdf>
    [RetrospectiveVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/RetrospectiveVerslagen.pdf>
    [ReviewVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/ReviewVerslagen.pdf>
