@@ -45,4 +45,4 @@ door verschillende puzzels op te lossen en items te verzamelen en de boze vogel 
    [RetrospectiveVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/RetrospectiveVerslagen.pdf>
    [ReviewVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/ReviewVerslagen.pdf>
    [Prototype]: <https://www.mijnmytheprototype.nl>
-   [AssetPlanning]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/AssetPlanning.pdf>
+   [AssetPlanning]: <https://github.com/TimBouwman/Project-Mythe/blob/master/producten/asset_planning%20(1).pdf>
