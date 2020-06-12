@@ -10,6 +10,8 @@ met de mythe van de nacht krapp.
 het verhaal is dat je in zijn hol wakker word en je moet ontsnappen van de nachtkrapp.
 door verschillende puzzels op te lossen en items te verzamelen en de boze vogel te ontlopen
 
+
+GamePlay Video: [video](https://www.youtube.com/watch?v=bsNOG7DFb_E&feature=youtu.be);
 ---
 #### Producten Werkproces 1
 | Product  | Link |
