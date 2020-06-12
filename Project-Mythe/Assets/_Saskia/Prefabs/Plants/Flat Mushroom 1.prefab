@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9087322316609612457
 Transform:
@@ -89,11 +89,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5200015215618862171}
   m_Layer: 0
-  m_Name: Flat Mushroom 1 (4)
+  m_Name: Flat Mushroom 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5200015215618862171
 Transform:
@@ -104,7 +104,7 @@ Transform:
   m_GameObject: {fileID: 9111190588929105480}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.782916, y: 1.2061367, z: -12.646563}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 9087322316609612457}
   m_Father: {fileID: 0}
