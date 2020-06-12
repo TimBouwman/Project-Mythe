@@ -41,7 +41,7 @@ door verschillende puzzels op te lossen en items te verzamelen en de boze vogel 
 
    [Backlog]: <https://trello.com/b/CvDCCYtS/mythe>
    [Logboek]: <https://github.com/TimBouwman/Project-Mythe/blob/master/producten/LOGBOEK%20MYTHE.pdf>
-   [GameDesignDoc]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/GameDesignDoc.pdf>
+   [GameDesignDoc]: <https://github.com/TimBouwman/Project-Mythe/blob/master/producten/GameDesignDoc.pdf>
    [RetrospectiveVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/RetrospectiveVerslagen.pdf>
    [ReviewVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/ReviewVerslagen.pdf>
    [Prototype]: <https://www.mijnmytheprototype.nl>
