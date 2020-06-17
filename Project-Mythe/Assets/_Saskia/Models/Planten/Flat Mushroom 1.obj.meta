@@ -3,7 +3,12 @@ guid: a00f128b746017744b6469c200dbd63d
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flat_Mushroom_1Mat
+    second: {fileID: 2100000, guid: d556d8a821ce6f1408aabd9651fcfab4, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

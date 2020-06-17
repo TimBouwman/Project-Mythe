@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Project-Mythe/Assets/ExampleAssets/_Mariska/assets.meta
 guid: a9cebb24c038dcd4aae29d2ce8eae084
+=======
+guid: 3d32951114fe2d24db276629377b3f87
+>>>>>>> 5a54aeebdadedc54d1c2e6dcd8c1769d099771a5:Project-Mythe/Assets/_Margo/prefab.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
