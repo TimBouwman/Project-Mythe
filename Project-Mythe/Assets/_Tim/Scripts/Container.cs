@@ -115,7 +115,12 @@ public class Container : MonoBehaviour
             currentItem.GetComponent<Collider>().enabled = true;
         }
         else if (currentItem.transform.position != itemPositions[currentItemAmount - 1].position && currentItem.transform.rotation != itemPositions[currentItemAmount - 1].rotation)
+        {
             currentItem.transform.Lerp(itemPositions[currentItemAmount - 1], Time.deltaTime * 3);
+            if (hand != null)
+                hand = null;
+        }
+            
     }
 
     private void AddItem(Collider item)
