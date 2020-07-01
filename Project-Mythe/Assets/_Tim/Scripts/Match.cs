@@ -56,6 +56,7 @@ public class Match : Item
                 anim.Play("Burning", -1);
                 audioS.Play(0);
                 Destroy(matchHeadIndex.gameObject);
+                this.layer = 0;
                 used = true;
             }
             oldPos = matchHeadIndex.localPosition.x;
